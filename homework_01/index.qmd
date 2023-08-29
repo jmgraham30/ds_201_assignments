@@ -69,6 +69,9 @@ a. What do these commands do?
 
 b. Add an R code chunk in your Quarto document and use the `glimpse` command to examine the data you have just loaded. 
 
+c. Use the out put from the `glimpse` command to determine the number of rows and columns that are contained in the data frames `childcare_costs` and `counties`.
+
+
 
 
 
