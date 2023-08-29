@@ -72,6 +72,16 @@ b. Add an R code chunk in your Quarto document and use the `glimpse` command to 
 c. Use the out put from the `glimpse` command to determine the number of rows and columns that are contained in the data frames `childcare_costs` and `counties`.
 
 
+### Problem 5
 
+[Version control](https://en.wikipedia.org/wiki/Version_control) is a type of software system that allows one to manage and track changes to computer programs, documents, large web sites, or other collections of information. It is now considered best practices to use version control on software projects such as those that are common in data science projects. One of the most popular open-source version control systems is known as [git](https://git-scm.com/). It is possible to maintain files, data, code, and software projects not only locally on your computer but also on a remote repository. Remote repositories also allow one the use of version control across different computers and even across a team of collaborators. One of the most popular open-source remote repository platforms in [GitHub](https://github.com/). This problem is meant to walk you through the process of installing git and setting up a GitHub account. 
+
+a. Go to the git home page and download the git software for your computer, [view git home page](https://git-scm.com/).
+
+b. Go to the GitHub Student Developer Pack website, [view the website](https://education.github.com/pack).
+
+c. On the GitHub Student Developer Pack website, click the link that says "Sign up for Student Developer Pack". This should walk you through the steps of signing up for GitHub and the Student Developer Pack which provides you access to the pro version of GitHub for free. This will require you to verify your status as a student which you should be able to do by submitting a picture of your student ID. Additionally, this set up will require you to create a user name/email and an password. Make sure that you save all of this information in a secure but easy to remember location. 
+
+d. Go to the page for the GitHub Desktop Application, [view the GitHub Desktop website](https://desktop.github.com/). Download and install the GitHub Desktop app for your computer. 
 
 
