@@ -67,4 +67,8 @@ counties <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytues
 
 a. What do these commands do? 
 
+b. Add an R code chunk in your Quarto document and use the `glimpse` command to examine the data you have just loaded. 
+
+
+
 
