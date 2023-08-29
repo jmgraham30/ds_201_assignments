@@ -1,5 +1,6 @@
 ## Assignments for DS 201 Introduction to Data Science
 
+This is the repository for assignments for the course DS 201 *Introduction to Data Science*. 
 
 ## License
 
