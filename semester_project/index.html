@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
@@ -33,6 +52,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
 
 
 </head>
@@ -41,7 +61,14 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#project-component-1" id="toc-project-component-1" class="nav-link" data-scroll-target="#project-component-1">Project Component 1</a></li>
+  </ul>
+</nav>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -62,9 +89,44 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The semester project will incorporate all the components of a data analysis covered in the course throughout the semester applied to a data set of your choosing pending approval by the instructor. Various components of the project will be due at different times but you will have the opportunity to revise some components prior to the submission of the final product.</p>
+<p>A complete project, counting for 50% of the overall course grade will consist of the following:</p>
+<ul>
+<li><p>A data sheet describing the essential information about your chosen data set.</p></li>
+<li><p>An initial exploratory data analysis for your chosen data set.</p></li>
+<li><p>An appropriate analysis of your chosen data set with the goal to address a specific research question.</p></li>
+<li><p>A project report developed using Quarto. You may view the rendered version of an example report <a href="https://symphonious-crostata-5b1f0b.netlify.app/report/">here</a>.</p></li>
+<li><p>Slides for a presentation summarizing your project. You will not actually present the slides. A rendered version of examples slides may be viewed <a href="https://symphonious-crostata-5b1f0b.netlify.app/presentation/">here</a>.</p></li>
+<li><p>A GitHub repository containing all code (appropriately documented) written and used in your project. An example project repository may be viewed <a href="https://github.com/jmgraham30/baseball_weather/tree/main">here</a>.</p></li>
+</ul>
+<p>Your project report and presentation should be written as if it is addressed to a stake holder with some subject matter knowledge in the domain of application but not necessarily with a quantitative or programming background.</p>
+</section>
+<section id="project-component-1" class="level2">
+<h2 class="anchored" data-anchor-id="project-component-1">Project Component 1</h2>
+<p>The first component of the semester project is a draft of your data sheet.</p>
+<ol type="1">
+<li>Begin by watching the video on Datasheets for Datasets:</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://www.youtube.com/embed/R7s7_T4yXak" width="800" height="450" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+</div>
+<p>The paper <a href="https://dl.acm.org/doi/pdf/10.1145/3458723">Datasheets for Datasets</a> lays out a framework for documenting data for data science projects <span class="citation" data-cites="gebru2021datasheets">(<a href="#ref-gebru2021datasheets" role="doc-biblioref">Gebru et al. 2021</a>)</span>. <a href="https://dl.acm.org/doi/pdf/10.1145/3458723">View the paper</a>.</p>
 
+</section>
 
-</main>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-gebru2021datasheets" class="csl-entry" role="listitem">
+Gebru, Timnit, Jamie Morgenstern, Briana Vecchione, Jennifer Wortman Vaughan, Hanna Wallach, Hal Daumé Iii, and Kate Crawford. 2021. <span>“Datasheets for Datasets.”</span> <em>Communications of the ACM</em> 64 (12): 86–92.
+</div>
+</div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
