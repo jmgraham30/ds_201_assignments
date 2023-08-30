@@ -14,11 +14,11 @@ For your amusement: What's orange and sounds like a parrot? A carrot!
 
 ### Problem 1
 
-a. Create a RStudio project on your computer and name it `homework_01_lastname` where you should replace "lastname" with your last name. For example, I would create a project named `homework_01_graham`. 
+a. Create a RStudio project on your computer and name it `homework_02_lastname` where you should replace "lastname" with your last name. For example, I would create a project named `homework_02_graham`. 
 
 b. Add a subfolder to your project title `data`. 
 
-c. While in your project, create a Quarto document with title "Homework 1" and add your name as the author. Save this file as `lastname_homework_01` replacing the "lastname" part with your last name.
+c. While in your project, create a Quarto document with title "Homework 2" and add your name as the author. Save this file as `lastname_homework_02` replacing the "lastname" part with your last name.
 
 d. Add the following R code chunk to your Quarto document:
 
