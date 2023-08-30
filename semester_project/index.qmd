@@ -3,5 +3,6 @@ title: "DS 201 Semester Project"
 format: 
   html:
     theme: pulse
+    toc: true
 ---
 
