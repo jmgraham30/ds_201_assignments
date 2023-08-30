@@ -3,6 +3,7 @@ title: "DS 201 Homework 1"
 format: 
   html:
     theme: pulse  
+    toc: true
 ---
 
 This is Homework Assignment 1 for DS 201. You can view the source code for this assignment on GitHub: [view the source code](https://github.com/jmgraham30/ds_201_assignments/blob/main/homework_01/index.qmd).
