@@ -1,0 +1,72 @@
+---
+title: "DS 201 Homework 2"
+format: 
+  html:
+    theme: pulse  
+---
+
+
+
+## Problems
+
+### Problem 1
+
+a. Create a RStudio project on your computer and name it `homework_01_lastname` where you should replace "lastname" with your last name. For example, I would create a project named `homework_01_graham`. 
+
+b. Add a subfolder to your project title `data`. 
+
+c. While in your project, create a Quarto document with title "Homework 1" and add your name as the author. Save this file as `lastname_homework_01` replacing the "lastname" part with your last name.
+
+d. Add the following R code chunk to your Quarto document:
+
+```{r}
+#| message: false
+#| warning: false
+#| code-fold: false
+#| echo: true
+
+# load useful libraries
+library(tidyverse)
+library(tidytuesdayR)
+```
+
+### Problem 2
+
+Skim through the information in the following repository:
+
+- Childcare Costs [view the repository](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-05-09/readme.md)
+
+Write a paragraph in your Quarto document describing the data that is contained in this repository. Make sure that your paragraph addresses the following points:
+
+a. The source of the data. 
+
+b. The format the data is saved as. That is, is it saved as a csv file, a dat file, etc.?
+
+c. A general description of what information is recorded in the data.
+
+### Problem 3
+
+Explore the website associated with the data source, [view the website](https://www.dol.gov/agencies/wb/topics/featured-childcare).
+
+a. What type of research or questions are or could be addressed with the data from Problem 2? Write a paragraph answering this question in your Quarto document. 
+
+### Problem 4
+
+Run the following R code in a code chunk in your Quarto document:
+
+```{r}
+#| message: false
+#| warning: false
+#| code-fold: false
+#| echo: true
+
+# load the data
+childcare_costs <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv')
+counties <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/counties.csv')
+```
+
+a. What do these commands do? 
+
+b. Add an R code chunk in your Quarto document and use the `glimpse` command to examine the data you have just loaded. 
+
+c. Use the out put from the `glimpse` command to determine the number of rows and columns that are contained in the data frames `childcare_costs` and `counties`.
