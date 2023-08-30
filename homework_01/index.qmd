@@ -5,7 +5,7 @@ format:
     theme: pulse  
 ---
 
-This is Homework Assignment 1 for DS 201. You can view the course code for this assignment on GitHub: [view the source code](https://github.com/jmgraham30/ds_201_assignments/blob/main/homework_01/index.qmd).
+This is Homework Assignment 1 for DS 201. You can view the source code for this assignment on GitHub: [view the source code](https://github.com/jmgraham30/ds_201_assignments/blob/main/homework_01/index.qmd).
 
 For your amusement: What did one tomato say to the other? "I know I'm late but I'll ketchup!" 
 
@@ -13,11 +13,34 @@ For your amusement: What did one tomato say to the other? "I know I'm late but I
 
 ### Problem 1
 
+Return to the interactive data tools on the Gapminder page, [view interactive tools page](https://www.gapminder.org/tools/#$chart-type=bubbles&url=v1). Use these tools to respond to the following prompts or questions:
+
+a. What is GDP per capita and what does it measure? 
+
+b. How would you describe the general relationship between income and life expectancy based on the bubbles plot? 
+
+c. Do you think the relationship between income and life expectancy has changed over time? Explain your answer.
 
 
+### Problem 2
 
+In the Gapminder bubbles interactive data tool, there are four facets of the plot that can be assigned to different variables: the  horizontal axis, the vertical axis, the color of the bubbles, and the size of the bubbles.
 
-### Problem 
+Explore the different options for the variables that can be assigned to each of the four facets and choose ones that you are most interested in. 
+
+a. What is something you observe from the data that you have chosen?
+
+b. What is a question that you think could be addressed using the data that you have chosen?
+
+### Problem 3
+
+In addition to the bubbles interactive data tool, there is also an income interactive tool, a maps interactive tool, a trends interactive tool, a ranks interactive tool, and an ages interactive tool. 
+
+a. Write a paragraph or two that compares and contrasts these different interactive tools. 
+
+b. Give an example of a situation in which one of the interactive tools would be more appropriate than the others in displaying the data for a particular purpose. Explain your answer.
+
+### Problem 4
 
 [Version control](https://en.wikipedia.org/wiki/Version_control) is a type of software system that allows one to manage and track changes to computer programs, documents, large web sites, or other collections of information. It is now considered best practices to use version control on software projects such as those that are common in data science projects. One of the most popular open-source version control systems is known as [git](https://git-scm.com/). It is possible to maintain files, data, code, and software projects not only locally on your computer but also on a remote repository. Remote repositories also allow one the use of version control across different computers and even across a team of collaborators. One of the most popular open-source remote repository platforms in [GitHub](https://github.com/). This problem is meant to walk you through the process of installing git and setting up a GitHub account. 
 
@@ -29,4 +52,4 @@ c. On the GitHub Student Developer Pack website, click the link that says "Sign 
 
 d. Go to the page for the GitHub Desktop Application, [view the GitHub Desktop website](https://desktop.github.com/). Download and install the GitHub Desktop app for your computer. 
 
-
+To learn more about using git and GitHub the article How to Use Git/GitHub with R is recommended, [view the article](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r/).
