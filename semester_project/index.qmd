@@ -79,5 +79,10 @@ Your datasheet should be submitted together with all the relevant data files.
 
 ## Project Component 2
 
+The second component of the semester project is the results of your exploratory data analysis (EDA) for your chosen data set. This should include all the code you used to conduct an EDA together with a document that describes what you did and what you learned from the EDA. 
+
+
+## Project Component 3
+
 
 
