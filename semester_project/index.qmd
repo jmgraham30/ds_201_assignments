@@ -43,7 +43,7 @@ By the end of the third week of class, you should submit to the instructor a par
 
 ### Project Component 2
 
-The second component of the semester project is a draft of your data sheet. 
+The second component of the semester project is your raw data together with a draft of your data sheet. 
 
 1. Begin by watching the video on Datasheets for Datasets:
 
