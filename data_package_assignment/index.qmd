@@ -22,11 +22,27 @@ The following sections describe the necessary components for the data package as
 
 ## Raw Data
 
-Obtain some raw data that is of interest to you. 
+Obtain some raw data that is of interest to you. You should document the data collection process by addressing:
+
+- Who created the data and where did you obtain it from?
+
+- Why was the data collected?
+
+- From what population(s) has the data been sampled? 
+
+Make sure to describe what the format for the data is and explain how many files your data consists of. 
 
 ## Cleaned Data
 
+Write R code that imports your data and checks to make sure the data is imported correctly. Then, clean your data as appropriate. At minimum this should include:
 
+- Well-formatted names for columns.
+
+- Well-formatted names for the levels of any factors or names for any characters. 
+
+- Making sure that missing values are formatted appropriately. 
+
+- If your data is tabular data, that it is in tidy format. 
 
 ## Datasheet
 

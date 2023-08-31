@@ -41,7 +41,17 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#raw-data" id="toc-raw-data" class="nav-link" data-scroll-target="#raw-data">Raw Data</a></li>
+  <li><a href="#cleaned-data" id="toc-cleaned-data" class="nav-link" data-scroll-target="#cleaned-data">Cleaned Data</a></li>
+  <li><a href="#datasheet" id="toc-datasheet" class="nav-link" data-scroll-target="#datasheet">Datasheet</a></li>
+  <li><a href="#data-repository" id="toc-data-repository" class="nav-link" data-scroll-target="#data-repository">Data Repository</a></li>
+  </ul>
+</nav>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -62,7 +72,78 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The data package assignment, making up 20% of the course grade asks students to curate a data set according the best practices for reproducible data analyses. A complete data package assignment should consist of</p>
+<ul>
+<li><p>An appropriate raw data set(s) with original source fully documented.</p></li>
+<li><p>An appropriately cleaned and processed version of the original raw data set. All code or other files used to clean and process the raw data must be included as part of the final data package submission.</p></li>
+<li><p>An appropriate data sheet to accompany the data package.</p></li>
+<li><p>A public folder, repository, R package, or other container that can be used to make your data set and associated files and documentation available to others.</p></li>
+</ul>
+<p>The following sections describe the necessary components for the data package assignment.</p>
+</section>
+<section id="raw-data" class="level2">
+<h2 class="anchored" data-anchor-id="raw-data">Raw Data</h2>
+<p>Obtain some raw data that is of interest to you. You should document the data collection process by addressing:</p>
+<ul>
+<li><p>Who created the data and where did you obtain it from?</p></li>
+<li><p>Why was the data collected?</p></li>
+<li><p>From what population(s) has the data been sampled?</p></li>
+</ul>
+<p>Make sure to describe what the format for the data is and explain how many files your data consists of.</p>
+</section>
+<section id="cleaned-data" class="level2">
+<h2 class="anchored" data-anchor-id="cleaned-data">Cleaned Data</h2>
+<p>Write R code that imports your data and checks to make sure the data is imported correctly. Then, clean your data as appropriate. At minimum this should include:</p>
+<ul>
+<li><p>Well-formatted names for columns.</p></li>
+<li><p>Well-formatted names for the levels of any factors or names for any characters.</p></li>
+<li><p>Making sure that missing values are formatted appropriately.</p></li>
+<li><p>If your data is tabular data, that it is in tidy format.</p></li>
+</ul>
+</section>
+<section id="datasheet" class="level2">
+<h2 class="anchored" data-anchor-id="datasheet">Datasheet</h2>
+<p>The paper <a href="https://dl.acm.org/doi/pdf/10.1145/3458723">Datasheets for Datasets</a> lays out a framework for documenting data for data science projects <span class="citation" data-cites="gebru2021datasheets">[@gebru2021datasheets]</span>. <a href="https://dl.acm.org/doi/pdf/10.1145/3458723">View the paper</a>. We will follow this framework to create a data sheet for our data package assignment. A datasheet should contain the following sections that address the specified questions:</p>
+<ul>
+<li>Section 1: Data Sources</li>
+</ul>
+<p>Who created the data and where did you obtain it from? Why was the data collected? Is the data from a public or private source? From what population(s) has the data been sampled?</p>
+<p>Be sure that your datasheet includes links or references to the data source(s).</p>
+<ul>
+<li>Section 2: Format of Data</li>
+</ul>
+<p>What is the format of the original data? What type of files are used for saving or storing the data?</p>
+<ul>
+<li>Section 3: Data Structure</li>
+</ul>
+<p>What is the structure of the raw data? For example, is it tabular data? If so, how many rows and columns does it have? What information is in each column and row? Is the data self-contained or does it link to other sources?</p>
+<ul>
+<li>Section 4: Data Issues</li>
+</ul>
+<p>Does the data contain any errors or missing values?</p>
+<ul>
+<li>Section 5: Data Cleaning</li>
+</ul>
+<p>Has the data been cleaned in any way? If so, describe the cleaning process and what has been done? For example, where any missing values removed? Make sure to include files for the cleaned/processed data along with any code used to do so.</p>
+</section>
+<section id="data-repository" class="level2">
+<h2 class="anchored" data-anchor-id="data-repository">Data Repository</h2>
+<p>We need a way to store, maintain, and share our data and this is the purpose of a data repository. There are many options for how to do this including but not limited to:</p>
+<ul>
+<li><p>DropBox</p></li>
+<li><p>Sharepoint or OneDrive</p></li>
+<li><p>GitHub</p></li>
+<li><p>Google Drive</p></li>
+</ul>
+<p>You can use any of these options or an alternative as long as it has the following capabilities:</p>
+<ol type="a">
+<li><p>It is appropriate for the size of the files for your data.</p></li>
+<li><p>You can update your data if necessary.</p></li>
+<li><p>It can be shared with others.</p></li>
+</ol>
+</section>
 
 </main>
 <!-- /main column -->
