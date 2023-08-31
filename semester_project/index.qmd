@@ -27,10 +27,23 @@ A complete project, counting for 50% of the overall course grade will consist of
 
 Your project report and presentation should be written as if it is addressed to a stake holder with some subject matter knowledge in the domain of application but not necessarily with a quantitative or programming background. 
 
+## Project Instructions and Components
 
-## Project Component 1
+Begin your semester project by choosing a topic and finding a source for some data that you can analyze. The only real restriction is that you need to have enough data that is appropriate for applying the methods we will learn in the class. 
 
-The first component of the semester project is a draft of your data sheet. 
+### Project Component 1
+
+By the end of the third week of class, you should submit to the instructor a paragraph that addresses the following questions:
+
+1. What is the topic that you want to focus on for your semester project? 
+
+2. Why is the topic of focus for your project appropriate for data analysis?
+
+3. What is the source for the data you will use for your project? Make sure to include a reference or link to your data source. 
+
+### Project Component 2
+
+The second component of the semester project is a draft of your data sheet. 
 
 1. Begin by watching the video on Datasheets for Datasets:
 
@@ -77,16 +90,14 @@ What is your intended use for the data?
 Your datasheet should be submitted together with all the relevant data files. 
 
 
-## Project Component 2
+### Project Component 3
 
 The second component of the semester project is the results of your exploratory data analysis (EDA) for your chosen data set. This should include all the code you used to conduct an EDA together with a document that describes what you did and what you learned from the EDA. 
 
 
-## Project Component 3
+### Project Component 4
 
 
-## Project Component 4
 
-
-## Final Submission
+### Final Submission
 

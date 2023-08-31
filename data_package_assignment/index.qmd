@@ -5,3 +5,76 @@ format:
     theme: pulse
     toc: true
 ---
+
+## Overview
+
+The data package assignment, making up 20% of the course grade asks students to curate a data set according the best practices for reproducible data analyses. A complete data package assignment should consist of
+
+- An appropriate raw data set(s) with original source fully documented.
+
+- An appropriately cleaned and processed version of the original raw data set. All code or other files used to clean and process the raw data must be included as part of the final data package submission.
+
+- An appropriate data sheet to  accompany the data package.
+
+- A public folder, repository, R package, or other container that can be used to make your data set and associated files and documentation available to others. 
+
+The following sections describe the necessary components for the data package assignment. 
+
+## Raw Data
+
+Obtain some raw data that is of interest to you. 
+
+## Cleaned Data
+
+
+
+## Datasheet
+
+The paper [Datasheets for Datasets](https://dl.acm.org/doi/pdf/10.1145/3458723) lays out a framework for documenting data for data science projects [@gebru2021datasheets]. [View the paper](https://dl.acm.org/doi/pdf/10.1145/3458723). We will follow this framework to create a data sheet for our data package assignment. A datasheet should contain the following sections that address the specified questions:
+
+- Section 1: Data Sources
+
+Who created the data and where did you obtain it from? Why was the data collected? Is the data from a public or private source? From what population(s) has the data been sampled? 
+
+Be sure that your datasheet includes links or references to the data source(s). 
+
+- Section 2: Format of Data
+
+What is the format of the original data? What type of files are used for saving or storing the data? 
+
+- Section 3: Data Structure
+
+What is the structure of the raw data? For example, is it tabular data? If so, how many rows and columns does it have? What information is in each column and row? Is the data self-contained or does it link to other sources?
+
+- Section 4: Data Issues
+
+Does the data contain any errors or missing values?
+
+- Section 5: Data Cleaning
+
+Has the data been cleaned in any way? If so, describe the cleaning process and what has been done? For example, where any missing values removed? Make sure to include files for the cleaned/processed data along with any code used to do so. 
+
+
+
+## Data Repository
+
+We need a way to store, maintain, and share our data and this is the purpose of a data repository. There are many options for how to do this including but not limited to:
+
+- DropBox
+
+- Sharepoint or OneDrive
+
+- GitHub
+
+- Google Drive
+
+You can use any of these options or an alternative as long as it has the following capabilities:
+
+a. It is appropriate for the size of the files for your data.
+
+b. You can update your data if necessary. 
+
+c. It can be shared with others. 
+
+
+
