@@ -97,7 +97,19 @@ The third component of the semester project is the results of your exploratory d
 
 ### Project Component 4
 
-
+The fourth component of your semester project should be the results of your full analysis of your data. This can be any type of model as long as it is appropriate for your data set and you can justify why you used the type of model you did. This should include all the code and data needed to reproduce your results. 
 
 ### Final Submission
+
+The final submission for your semester project should consist of:
+
+- A project report developed using Quarto. You may view the rendered version of an example report [here](https://symphonious-crostata-5b1f0b.netlify.app/report/).
+
+- Slides for a presentation summarizing your project. You will not actually present the slides. A rendered version of examples slides may be viewed [here](https://symphonious-crostata-5b1f0b.netlify.app/presentation/).
+
+- A GitHub repository containing all code (appropriately documented) written and used in your project. An example project repository may be viewed [here](https://github.com/jmgraham30/baseball_weather/tree/main).
+
+With your final submission, you may also include a revised datasheet. 
+
+
 
