@@ -4,6 +4,7 @@ format:
   html:
     theme: pulse
     toc: true
+bibliography: data_package.bib
 ---
 
 ## Overview
@@ -22,7 +23,7 @@ The following sections describe the necessary components for the data package as
 
 ## Raw Data
 
-Obtain some raw data that is of interest to you. You should document the data collection process by addressing:
+Obtain some data that is of interest to you from one of the data sources listed in [Appendix B](https://tellingstorieswithdata.com/21-datasets.html) of *Telling Stories with Data*. [View Appendix B](https://tellingstorieswithdata.com/21-datasets.html). You should document the data collection process by addressing:
 
 - Who created the data and where did you obtain it from?
 
@@ -46,7 +47,17 @@ Write R code that imports your data and checks to make sure the data is imported
 
 ## Datasheet
 
-The paper [Datasheets for Datasets](https://dl.acm.org/doi/pdf/10.1145/3458723) lays out a framework for documenting data for data science projects [@gebru2021datasheets]. [View the paper](https://dl.acm.org/doi/pdf/10.1145/3458723). We will follow this framework to create a data sheet for our data package assignment. A datasheet should contain the following sections that address the specified questions:
+The paper [Datasheets for Datasets](https://dl.acm.org/doi/pdf/10.1145/3458723) lays out a framework for documenting data for data science projects [@gebru2021datasheets]. [View the paper](https://dl.acm.org/doi/pdf/10.1145/3458723). The following video provides an overview of Datasheets for Datasets:
+
+```{r}
+#| echo: false
+library(magrittr)
+vembedr::embed_youtube(id="R7s7_T4yXak",height=450) %>%
+  vembedr::use_align("center")
+```
+
+
+We will follow this framework to create a data sheet for our data package assignment. A datasheet should contain the following sections that address the specified questions:
 
 - Section 1: Data Sources
 

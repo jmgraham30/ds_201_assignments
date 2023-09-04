@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
@@ -33,6 +52,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
 
 
 </head>
@@ -85,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="raw-data" class="level2">
 <h2 class="anchored" data-anchor-id="raw-data">Raw Data</h2>
-<p>Obtain some raw data that is of interest to you. You should document the data collection process by addressing:</p>
+<p>Obtain some data that is of interest to you from one of the data sources listed in <a href="https://tellingstorieswithdata.com/21-datasets.html">Appendix B</a> of <em>Telling Stories with Data</em>. <a href="https://tellingstorieswithdata.com/21-datasets.html">View Appendix B</a>. You should document the data collection process by addressing:</p>
 <ul>
 <li><p>Who created the data and where did you obtain it from?</p></li>
 <li><p>Why was the data collected?</p></li>
@@ -105,7 +125,17 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="datasheet" class="level2">
 <h2 class="anchored" data-anchor-id="datasheet">Datasheet</h2>
-<p>The paper <a href="https://dl.acm.org/doi/pdf/10.1145/3458723">Datasheets for Datasets</a> lays out a framework for documenting data for data science projects <span class="citation" data-cites="gebru2021datasheets">[@gebru2021datasheets]</span>. <a href="https://dl.acm.org/doi/pdf/10.1145/3458723">View the paper</a>. We will follow this framework to create a data sheet for our data package assignment. A datasheet should contain the following sections that address the specified questions:</p>
+<p>The paper <a href="https://dl.acm.org/doi/pdf/10.1145/3458723">Datasheets for Datasets</a> lays out a framework for documenting data for data science projects <span class="citation" data-cites="gebru2021datasheets">(<a href="#ref-gebru2021datasheets" role="doc-biblioref">Gebru et al. 2021</a>)</span>. <a href="https://dl.acm.org/doi/pdf/10.1145/3458723">View the paper</a>. The following video provides an overview of Datasheets for Datasets:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://www.youtube.com/embed/R7s7_T4yXak" width="800" height="450" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+</div>
+<p>We will follow this framework to create a data sheet for our data package assignment. A datasheet should contain the following sections that address the specified questions:</p>
 <ul>
 <li>Section 1: Data Sources</li>
 </ul>
@@ -143,9 +173,14 @@ ul.task-list li input[type="checkbox"] {
 <li><p>You can update your data if necessary.</p></li>
 <li><p>It can be shared with others.</p></li>
 </ol>
+
 </section>
 
-</main>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-gebru2021datasheets" class="csl-entry" role="listitem">
+Gebru, Timnit, Jamie Morgenstern, Briana Vecchione, Jennifer Wortman Vaughan, Hanna Wallach, Hal Daumé Iii, and Kate Crawford. 2021. <span>“Datasheets for Datasets.”</span> <em>Communications of the ACM</em> 64 (12): 86–92.
+</div>
+</div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
