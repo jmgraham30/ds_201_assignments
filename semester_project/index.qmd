@@ -43,65 +43,21 @@ By the end of the third week of class, you should submit to the instructor a par
 
 ### Project Component 2
 
-The second component of the semester project is your raw data together with a draft of your data sheet. 
-
-1. Begin by watching the video on Datasheets for Datasets:
-
-```{r}
-#| echo: false
-library(magrittr)
-vembedr::embed_youtube(id="R7s7_T4yXak",height=450) %>%
-  vembedr::use_align("center")
-```
-
-The paper [Datasheets for Datasets](https://dl.acm.org/doi/pdf/10.1145/3458723) lays out a framework for documenting data for data science projects [@gebru2021datasheets]. [View the paper](https://dl.acm.org/doi/pdf/10.1145/3458723). We will follow this framework to create a data sheet for our semester project.
-
-2. Obtain the raw data set or data sets for your semester project. 
-
-3. Draft a datasheet that contains the following sections that address the specified questions:
-
-- Section 1: Data Sources
-
-Who created the data and where did you obtain it from? Why was the data collected? Is the data from a public or private source? From what population(s) has the data been sampled? 
-
-Be sure that your datasheet includes links or references to the data source(s). 
-
-- Section 2: Format of Data
-
-What is the format of the original data? What type of files are used for saving or storing the data? 
-
-- Section 3: Data Structure
-
-What is the structure of the raw data? For example, is it tabular data? If so, how many rows and columns does it have? What information is in each column and row? Is the data self-contained or does it link to other sources?
-
-- Section 4: Data Issues
-
-Does the data contain any errors or missing values?
-
-- Section 5: Data Cleaning
-
-Has the data been cleaned in any way? If so, describe the cleaning process and what has been done? For example, where any missing values removed? Make sure to include files for the cleaned/processed data along with any code used to do so. 
-
-- Section 6: Data Use
-
-What is your intended use for the data? 
-
-
-Your datasheet should be submitted together with all the relevant data files. 
+The second component of the semester project due by the end of the sixth week of classes is your raw data together with a draft of your datasheet. Follow the same procedure as in the [Data Package Assignment](https://ds201assignments.netlify.app/data_package_assignment/) to create your datasheet.  Your datasheet should be submitted together with all the relevant data files. 
 
 
 ### Project Component 3
 
-The third component of the semester project is the results of your exploratory data analysis (EDA) for your chosen data set. This should include all the code you used to conduct an EDA together with a document that describes what you did and what you learned from the EDA. 
+The third component of the semester project is due by the end of week nine and should include the results of your exploratory data analysis (EDA) for your chosen data set. This should include all the code you used to conduct an EDA together with a document that describes what you did and what you learned from the EDA. 
 
 
 ### Project Component 4
 
-The fourth component of your semester project should be the results of your full analysis of your data. This can be any type of model as long as it is appropriate for your data set and you can justify why you used the type of model you did. This should include all the code and data needed to reproduce your results. 
+The fourth component, due by the end of week twelve of your semester project should be the results of your full analysis of your data. This can be any type of model as long as it is appropriate for your data set and you can justify why you used the type of model you did. This should include all the code and data needed to reproduce your results. 
 
 ### Final Submission
 
-The final submission for your semester project should consist of:
+The final submission, due at the end of the scheduled final exam period for your semester project should consist of:
 
 - A project report developed using Quarto. You may view the rendered version of an example report [here](https://symphonious-crostata-5b1f0b.netlify.app/report/).
 
