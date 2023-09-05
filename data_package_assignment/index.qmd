@@ -23,7 +23,7 @@ The following sections describe the necessary components for the data package as
 
 ## Raw Data
 
-Obtain some data that is of interest to you from one of the data sources listed in [Appendix B](https://tellingstorieswithdata.com/21-datasets.html) of *Telling Stories with Data*. [View Appendix B](https://tellingstorieswithdata.com/21-datasets.html). You should document the data collection process by addressing:
+Obtain some data that is of interest to you. [View Appendix B](https://tellingstorieswithdata.com/21-datasets.html). You should document the data collection process by addressing:
 
 - Who created the data and where did you obtain it from?
 
