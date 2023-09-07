@@ -55,7 +55,7 @@ a. What type of research or questions are or could be addressed with the data fr
 
 ### Problem 4
 
-Run the following R code in a code chunk in your Quarto document:
+Run the following R code in a code chunk to read in the data from its online repository in your Quarto document:
 
 ```{r}
 #| message: false
@@ -73,3 +73,8 @@ a. What do these commands do?
 b. Add an R code chunk in your Quarto document and use the `glimpse` command to examine the data you have just loaded. 
 
 c. Use the out put from the `glimpse` command to determine the number of rows and columns that are contained in the data frames `childcare_costs` and `counties`.
+
+### Problem 5
+
+Use the `write_csv` command to save the data stored in the variable `childcare_costs` to a `.csv` file in your data folder with the file name `childcare_costs.csv`. Also, use  the `write_csv` command to save the data stored in the variable `counties` to a `.csv` file in your data folder with the file name `counties.csv`.
+

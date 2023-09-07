@@ -85,6 +85,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#problem-2" id="toc-problem-2" class="nav-link" data-scroll-target="#problem-2">Problem 2</a></li>
   <li><a href="#problem-3" id="toc-problem-3" class="nav-link" data-scroll-target="#problem-3">Problem 3</a></li>
   <li><a href="#problem-4" id="toc-problem-4" class="nav-link" data-scroll-target="#problem-4">Problem 4</a></li>
+  <li><a href="#problem-5" id="toc-problem-5" class="nav-link" data-scroll-target="#problem-5">Problem 5</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -148,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="problem-4" class="level3">
 <h3 class="anchored" data-anchor-id="problem-4">Problem 4</h3>
-<p>Run the following R code in a code chunk in your Quarto document:</p>
+<p>Run the following R code in a code chunk to read in the data from its online repository in your Quarto document:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>childcare_costs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv'</span>)</span>
@@ -159,6 +160,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Add an R code chunk in your Quarto document and use the <code>glimpse</code> command to examine the data you have just loaded.</p></li>
 <li><p>Use the out put from the <code>glimpse</code> command to determine the number of rows and columns that are contained in the data frames <code>childcare_costs</code> and <code>counties</code>.</p></li>
 </ol>
+</section>
+<section id="problem-5" class="level3">
+<h3 class="anchored" data-anchor-id="problem-5">Problem 5</h3>
+<p>Use the <code>write_csv</code> command to save the data stored in the variable <code>childcare_costs</code> to a <code>.csv</code> file in your data folder with the file name <code>childcare_costs.csv</code>. Also, use the <code>write_csv</code> command to save the data stored in the variable <code>counties</code> to a <code>.csv</code> file in your data folder with the file name <code>counties.csv</code>.</p>
 </section>
 </section>
 
