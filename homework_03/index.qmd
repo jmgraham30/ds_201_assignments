@@ -1,0 +1,18 @@
+---
+title: "DS 201 Homework 3"
+format: 
+  html:
+    theme: pulse 
+    toc: true 
+---
+
+This is Homework Assignment 2 for DS 201. You can view the course code for this assignment on GitHub: [view the source code](https://github.com/jmgraham30/ds_201_assignments/blob/main/homework_02/index.qmd).
+
+For your amusement: Knock knock. "Who's there?" Figs. "Figs who?" "Figs the doorbell. I've been knocking forever!"
+
+## Problems
+
+Please complete and turn in this assignment as a Quarto notebook. 
+
+### Problem 1
+
