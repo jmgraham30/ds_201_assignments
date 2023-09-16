@@ -209,12 +209,14 @@ ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
 ```
 
 
-a. Based on the plot, how would you describe the relationship between body mass vs. flipper length?
+a. How many variables from the data are shown in the plot? What is the type (numerical or categorical) for each of the variables shown in the plot?
 
-b. Is the relationship between body mass vs. flipper length different for different species?
+b. Based on the plot, how would you describe the relationship between body mass vs. flipper length?
 
-c. Does the plot indicate any difference between the different species of penguins? If so, explain the differences. 
+c. Is the relationship between body mass vs. flipper length different for different species?
 
-d. What aesthetics are used in the plot for @fig-fancy-fig? Describe how the different aesthetics are used. 
+d. Does the plot indicate any difference between the different species of penguins? If so, explain the differences. 
 
-e. Do you think the plot in @fig-fancy-fig is effective? Explain why or why not. 
+e. What aesthetics are used in the plot for @fig-fancy-fig? Describe how the different aesthetics are used. 
+
+f. Do you think the plot in @fig-fancy-fig is effective? Explain why or why not. 
