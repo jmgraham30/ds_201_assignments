@@ -140,8 +140,38 @@ f. Now that you know how to create the `total_volume` variable, use an appropria
 
 g. Use an appropriate command(s) to compute the average total volume by year for each region. 
 
+### Problem 5
+
+This problem will ask you to apply various `dplyr` functions to the `madrid_pollution` data set. 
 
 
+a. Use an appropriate command(s) to compute the average carbon monoxide level by year for each month. Further, arrange the result to determine the top ten values for the  carbon monoxide level by year for each month. 
 
+b. Create a new data frame that contains only the columns `date`,`year`,`mnth`, `SO_2`, `BEN`, `CO`, and `TCH`;  and store the results in a variable called `madrid_pollution_red`.
 
+b. Use `pivot_longer` to combine all the pollutant measurements from you new data frame `madrid_pollution_red` into a single column called `poll_measure` and set `names_to = "pollutant"`. Store the result in a new variable named `madrid_pollution_red_long`.
+
+```{r}
+#| include: false
+madrid_pollution_red_long <- madrid_pollution %>%
+  select(date,year,mnth,SO_2,BEN,CO,TCH) %>%
+  pivot_longer(cols=-c(date,year,mnth),names_to = "pollutant",values_to = "poll_measure")
+```
+
+c. Now that you have your new variable `madrid_pollution_red_long` run the following command to produce a plot:
+
+```{r}
+#| message: false
+#| warning: false
+madrid_pollution_red_long %>%
+  mutate(date = date(date)) %>%
+  group_by(date,pollutant) %>%
+  summarise(mean_poll = mean(poll_measure,na.rm=TRUE)) %>%
+  ggplot(aes(x=date,y=mean_poll,color=pollutant)) + 
+  geom_point() + 
+  geom_line() + 
+  facet_wrap(~pollutant,scales="free")
+```
+
+What does this plot tell us about the four pollutants `BEN`, `CO`, `SO_2`, and `TCH`?
 
