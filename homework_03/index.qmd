@@ -133,10 +133,12 @@ avocado_prices %>%
   mutate(total_volume = small_hass_volume + large_hass_volume + extra_l_hass_volume)
 ```
 
+
+
 f. Now that you know how to create the `total_volume` variable, use an appropriate command(s) to compute the average total volume by year. 
 
 
-g. Use an appropriate command(s) to compute the average total volume by year for each region.
+g. Use an appropriate command(s) to compute the average total volume by year for each region. 
 
 
 
