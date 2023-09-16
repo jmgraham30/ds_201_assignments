@@ -10,9 +10,120 @@ This is Homework Assignment 2 for DS 201. You can view the course code for this 
 
 For your amusement: Knock knock. "Who's there?" Figs. "Figs who?" "Figs the doorbell. I've been knocking forever!"
 
-## Problems
+## Instructions
 
 Please complete and turn in this assignment as a Quarto notebook. 
 
+## Data for Homework Problems
+
+This homework will involve the use of three data sets so you should begin you Quarto notebook by including and running the follow R code chunk that loads the necessary packages and imports the data:
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+
+avocado_prices <- read_csv("https://raw.githubusercontent.com/UBC-DSCI/data-science-a-first-intro-worksheets/main/worksheet_wrangling/data/avocado_prices.csv")
+
+madrid_pollution <- read_tsv("https://raw.githubusercontent.com/jmgraham30/data-science-a-first-intro-worksheets/main/worksheet_wrangling/data/madrid_pollution.csv")
+```
+
+* The avocado prices data set stored as `avocado_prices` comes from the [Hass Avocado Board website](http://www.hassavocadoboard.com/).
+
+Some relevant columns in the data set:
+
+- `Date` - The date in year-month-day format
+- `average_price` - The average price of a single avocado
+- `type` - conventional or organic
+- `yr` - The year
+- `region` - The city or region of the observation
+- `small_hass_volume` in pounds (lbs)	
+- `large_hass_volume` in pounds (lbs)		
+- `extra_l_hass_volume`	in pounds (lbs)	
+- `wk` - integer number for the calendar week in the year (e.g., first week of January is 1, and last week of December is 52).
+
+* The Madrid pollution data set stored as `madrid_pollution` comes from [Kaggle](https://www.kaggle.com/decide-soluciones/air-quality-madrid). This data was collected under the instructions from Madrid's City Council and is publicly available on their website. This data consists of measurements from vehcile inspection stations, the list of possible measurements and their explanations are given by the website:
+
+- `SO_2`: sulphur dioxide level measured in μg/m³. High levels can produce irritation in the skin and membranes, and worsen asthma or heart diseases in sensitive groups.
+- `CO`: carbon monoxide level measured in mg/m³. Carbon monoxide poisoning involves headaches, dizziness and confusion in short exposures and can result in loss of consciousness, arrhythmias, seizures or even death.
+- `NO_2`: nitrogen dioxide level measured in μg/m³. Long-term exposure is a cause of chronic lung diseases, and are harmful for the vegetation.
+- `PM10`: particles smaller than 10 μm. Even though they cannot penetrate the alveolus, they can still penetrate through the lungs and affect other organs. Long term exposure can result in lung cancer and cardiovascular complications.
+- `NOx`: nitrous oxides level measured in μg/m³. Affect the human respiratory system worsening asthma or other diseases, and are responsible of the yellowish-brown color of photochemical smog.
+- `O_3`: ozone level measured in μg/m³. High levels can produce asthma, bronchytis or other chronic pulmonary diseases in sensitive groups or outdoor workers.
+- `TOL`: toluene (methylbenzene) level measured in μg/m³. Long-term exposure to this substance (present in tobacco smoke as well) can result in kidney complications or permanent brain damage.
+- `BEN`: benzene level measured in μg/m³. Benzene is a eye and skin irritant, and long exposures may result in several types of cancer, leukaemia and anaemias. Benzene is considered a group 1 carcinogenic to humans.
+- `EBE`: ethylbenzene level measured in μg/m³. Long term exposure can cause hearing or kidney problems and the IARC has concluded that long-term exposure can produce cancer.
+- `MXY`: m-xylene level measured in μg/m³. Xylenes can affect not only air but also water and soil, and a long exposure to high levels of xylenes can result in diseases affecting the liver, kidney and nervous system.
+- `PXY`: p-xylene level measured in μg/m³. See MXY for xylene exposure effects on health.
+- `OXY`: o-xylene level measured in μg/m³. See MXY for xylene exposure effects on health.
+- `TCH`: total hydrocarbons level measured in mg/m³. This group of substances can be responsible of different blood, immune system, liver, spleen, kidneys or lung diseases.
+- `NMHC`: non-methane hydrocarbons (volatile organic compounds) level measured in mg/m³. Long exposure to some of these substances can result in damage to the liver, kidney, and central nervous system. Some of them are suspected to cause cancer in humans.
+
+## Problems
+
 ### Problem 1
+
+
+a.  Which statement below is **incorrect** about vectors and data frames in R?
+
+    A. the columns of data frames are vectors
+
+    B. data frames can have columns of different types (e.g., a column of numeric data, and a column of character data)
+
+    C. vectors can have elements of different types (e.g., element one can be numeric, and element 2 can be a character)
+
+    D. data frames are a special kind of list
+    
+b. Which of the following does **not** characterize a tidy data set?
+
+    A. each row is a single observation
+
+    B. each value should not be in a single cell
+
+    C. each column is a single variable
+
+    D. each value is a single cell
+    
+### Problem 2
+
+For which scenario would using a `group_by()` + `summarize()` command be appropriate?
+
+  A. To apply the same function to every row. 
+
+  B. To apply the same function to every column.
+
+  C. To apply the same function to groups of rows. 
+
+  D. To apply the same function to groups of columns.
+
+
+### Problem 3
+
+a. Use the `glimpse` command examine the `avocado_prices` and `madrid_pollution` data sets. Based on the out put, list the number of rows and columns for the two data frames. 
+
+b. For the two data sets `avocado_prices` and `madrid_pollution`, use either the `summary` function or the `skim` function from the `skmir` package to determine if there are any missing values (which will be denoted by `NA`) for any of the variables in either of the two data sets. 
+
+
+### Problem 4
+
+This problem will ask you to apply various `dplyr` functions to the `avocado_prices` data set. 
+
+a. Run the following R command in order to see what types and how many of each type of avocados there are in the data set:
+
+```{r}
+#| code-fold: false
+table(avocado_prices$type)
+```
+
+b. Use an appropriate command(s) to filter the rows of the data set for which the type is organic. 
+
+
+c. Use an appropriate command(s) to select the average price, type, and region variables from the data set. 
+
+
+d. Use an appropriate command(s) to compute the mean for the `average_price` variables grouped by region and filter rows with the regions with the top ten mean `average_price` values.
+
 

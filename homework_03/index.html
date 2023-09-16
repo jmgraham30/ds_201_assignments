@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -45,9 +79,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#problems" id="toc-problems" class="nav-link active" data-scroll-target="#problems">Problems</a>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#data-for-homework-problems" id="toc-data-for-homework-problems" class="nav-link" data-scroll-target="#data-for-homework-problems">Data for Homework Problems</a></li>
+  <li><a href="#problems" id="toc-problems" class="nav-link" data-scroll-target="#problems">Problems</a>
   <ul class="collapse">
   <li><a href="#problem-1" id="toc-problem-1" class="nav-link" data-scroll-target="#problem-1">Problem 1</a></li>
+  <li><a href="#problem-2" id="toc-problem-2" class="nav-link" data-scroll-target="#problem-2">Problem 2</a></li>
+  <li><a href="#problem-3" id="toc-problem-3" class="nav-link" data-scroll-target="#problem-3">Problem 3</a></li>
+  <li><a href="#problem-4" id="toc-problem-4" class="nav-link" data-scroll-target="#problem-4">Problem 4</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -73,11 +112,104 @@ ul.task-list li input[type="checkbox"] {
 
 <p>This is Homework Assignment 2 for DS 201. You can view the course code for this assignment on GitHub: <a href="https://github.com/jmgraham30/ds_201_assignments/blob/main/homework_02/index.qmd">view the source code</a>.</p>
 <p>For your amusement: Knock knock. “Who’s there?” Figs. “Figs who?” “Figs the doorbell. I’ve been knocking forever!”</p>
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<p>Please complete and turn in this assignment as a Quarto notebook.</p>
+</section>
+<section id="data-for-homework-problems" class="level2">
+<h2 class="anchored" data-anchor-id="data-for-homework-problems">Data for Homework Problems</h2>
+<p>This homework will involve the use of three data sets so you should begin you Quarto notebook by including and running the follow R code chunk that loads the necessary packages and imports the data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>avocado_prices <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/UBC-DSCI/data-science-a-first-intro-worksheets/main/worksheet_wrangling/data/avocado_prices.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>madrid_pollution <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"https://raw.githubusercontent.com/jmgraham30/data-science-a-first-intro-worksheets/main/worksheet_wrangling/data/madrid_pollution.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The avocado prices data set stored as <code>avocado_prices</code> comes from the <a href="http://www.hassavocadoboard.com/">Hass Avocado Board website</a>.</li>
+</ul>
+<p>Some relevant columns in the data set:</p>
+<ul>
+<li><p><code>Date</code> - The date in year-month-day format</p></li>
+<li><p><code>average_price</code> - The average price of a single avocado</p></li>
+<li><p><code>type</code> - conventional or organic</p></li>
+<li><p><code>yr</code> - The year</p></li>
+<li><p><code>region</code> - The city or region of the observation</p></li>
+<li><p><code>small_hass_volume</code> in pounds (lbs)<br>
+</p></li>
+<li><p><code>large_hass_volume</code> in pounds (lbs)<br>
+</p></li>
+<li><p><code>extra_l_hass_volume</code> in pounds (lbs)</p></li>
+<li><p><code>wk</code> - integer number for the calendar week in the year (e.g., first week of January is 1, and last week of December is 52).</p></li>
+<li><p>The Madrid pollution data set stored as <code>madrid_pollution</code> comes from <a href="https://www.kaggle.com/decide-soluciones/air-quality-madrid">Kaggle</a>. This data was collected under the instructions from Madrid’s City Council and is publicly available on their website. This data consists of measurements from vehcile inspection stations, the list of possible measurements and their explanations are given by the website:</p></li>
+<li><p><code>SO_2</code>: sulphur dioxide level measured in μg/m³. High levels can produce irritation in the skin and membranes, and worsen asthma or heart diseases in sensitive groups.</p></li>
+<li><p><code>CO</code>: carbon monoxide level measured in mg/m³. Carbon monoxide poisoning involves headaches, dizziness and confusion in short exposures and can result in loss of consciousness, arrhythmias, seizures or even death.</p></li>
+<li><p><code>NO_2</code>: nitrogen dioxide level measured in μg/m³. Long-term exposure is a cause of chronic lung diseases, and are harmful for the vegetation.</p></li>
+<li><p><code>PM10</code>: particles smaller than 10 μm. Even though they cannot penetrate the alveolus, they can still penetrate through the lungs and affect other organs. Long term exposure can result in lung cancer and cardiovascular complications.</p></li>
+<li><p><code>NOx</code>: nitrous oxides level measured in μg/m³. Affect the human respiratory system worsening asthma or other diseases, and are responsible of the yellowish-brown color of photochemical smog.</p></li>
+<li><p><code>O_3</code>: ozone level measured in μg/m³. High levels can produce asthma, bronchytis or other chronic pulmonary diseases in sensitive groups or outdoor workers.</p></li>
+<li><p><code>TOL</code>: toluene (methylbenzene) level measured in μg/m³. Long-term exposure to this substance (present in tobacco smoke as well) can result in kidney complications or permanent brain damage.</p></li>
+<li><p><code>BEN</code>: benzene level measured in μg/m³. Benzene is a eye and skin irritant, and long exposures may result in several types of cancer, leukaemia and anaemias. Benzene is considered a group 1 carcinogenic to humans.</p></li>
+<li><p><code>EBE</code>: ethylbenzene level measured in μg/m³. Long term exposure can cause hearing or kidney problems and the IARC has concluded that long-term exposure can produce cancer.</p></li>
+<li><p><code>MXY</code>: m-xylene level measured in μg/m³. Xylenes can affect not only air but also water and soil, and a long exposure to high levels of xylenes can result in diseases affecting the liver, kidney and nervous system.</p></li>
+<li><p><code>PXY</code>: p-xylene level measured in μg/m³. See MXY for xylene exposure effects on health.</p></li>
+<li><p><code>OXY</code>: o-xylene level measured in μg/m³. See MXY for xylene exposure effects on health.</p></li>
+<li><p><code>TCH</code>: total hydrocarbons level measured in mg/m³. This group of substances can be responsible of different blood, immune system, liver, spleen, kidneys or lung diseases.</p></li>
+<li><p><code>NMHC</code>: non-methane hydrocarbons (volatile organic compounds) level measured in mg/m³. Long exposure to some of these substances can result in damage to the liver, kidney, and central nervous system. Some of them are suspected to cause cancer in humans.</p></li>
+</ul>
+</section>
 <section id="problems" class="level2">
 <h2 class="anchored" data-anchor-id="problems">Problems</h2>
-<p>Please complete and turn in this assignment as a Quarto notebook.</p>
 <section id="problem-1" class="level3">
 <h3 class="anchored" data-anchor-id="problem-1">Problem 1</h3>
+<ol type="a">
+<li><p>Which statement below is <strong>incorrect</strong> about vectors and data frames in R?</p>
+<p>A. the columns of data frames are vectors</p>
+<p>B. data frames can have columns of different types (e.g., a column of numeric data, and a column of character data)</p>
+<p>C. vectors can have elements of different types (e.g., element one can be numeric, and element 2 can be a character)</p>
+<p>D. data frames are a special kind of list</p></li>
+<li><p>Which of the following does <strong>not</strong> characterize a tidy data set?</p>
+<p>A. each row is a single observation</p>
+<p>B. each value should not be in a single cell</p>
+<p>C. each column is a single variable</p>
+<p>D. each value is a single cell</p></li>
+</ol>
+</section>
+<section id="problem-2" class="level3">
+<h3 class="anchored" data-anchor-id="problem-2">Problem 2</h3>
+<p>For which scenario would using a <code>group_by()</code> + <code>summarize()</code> command be appropriate?</p>
+<p>A. To apply the same function to every row.</p>
+<p>B. To apply the same function to every column.</p>
+<p>C. To apply the same function to groups of rows.</p>
+<p>D. To apply the same function to groups of columns.</p>
+</section>
+<section id="problem-3" class="level3">
+<h3 class="anchored" data-anchor-id="problem-3">Problem 3</h3>
+<ol type="a">
+<li><p>Use the <code>glimpse</code> command examine the <code>avocado_prices</code> and <code>madrid_pollution</code> data sets. Based on the out put, list the number of rows and columns for the two data frames.</p></li>
+<li><p>For the two data sets <code>avocado_prices</code> and <code>madrid_pollution</code>, use either the <code>summary</code> function or the <code>skim</code> function from the <code>skmir</code> package to determine if there are any missing values (which will be denoted by <code>NA</code>) for any of the variables in either of the two data sets.</p></li>
+</ol>
+</section>
+<section id="problem-4" class="level3">
+<h3 class="anchored" data-anchor-id="problem-4">Problem 4</h3>
+<p>This problem will ask you to apply various <code>dplyr</code> functions to the <code>avocado_prices</code> data set.</p>
+<ol type="a">
+<li>Run the following R command in order to see what types and how many of each type of avocados there are in the data set:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(avocado_prices<span class="sc">$</span>type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+conventional      organic 
+        8957         8954 </code></pre>
+</div>
+</div>
+<ol start="2" type="a">
+<li><p>Use an appropriate command(s) to filter the rows of the data set for which the type is organic.</p></li>
+<li><p>Use an appropriate command(s) to select the average price, type, and region variables from the data set.</p></li>
+<li><p>Use an appropriate command(s) to compute the mean for the <code>average_price</code> variables grouped by region and filter rows with the regions with the top ten mean <code>average_price</code> values.</p></li>
+</ol>
 </section>
 </section>
 
