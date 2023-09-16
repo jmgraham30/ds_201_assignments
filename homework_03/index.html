@@ -88,6 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#problem-3" id="toc-problem-3" class="nav-link" data-scroll-target="#problem-3">Problem 3</a></li>
   <li><a href="#problem-4" id="toc-problem-4" class="nav-link" data-scroll-target="#problem-4">Problem 4</a></li>
   <li><a href="#problem-5" id="toc-problem-5" class="nav-link" data-scroll-target="#problem-5">Problem 5</a></li>
+  <li><a href="#problem-6" id="toc-problem-6" class="nav-link" data-scroll-target="#problem-6">Problem 6</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -119,13 +120,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-for-homework-problems" class="level2">
 <h2 class="anchored" data-anchor-id="data-for-homework-problems">Data for Homework Problems</h2>
-<p>This homework will involve the use of two data sets so, you should begin your Quarto notebook by including and running the follow R code chunk that loads the necessary packages and imports the data:</p>
+<p>This homework will involve the use of two data sets so, you should begin your Quarto notebook by including and running the follow R code chunk that loads the necessary packages (make sure you have the packages <code>tidyverse</code>, <code>ggthemes</code>, and <code>palmerpenguins</code> installed) and imports the data:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>avocado_prices <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/UBC-DSCI/data-science-a-first-intro-worksheets/main/worksheet_wrangling/data/avocado_prices.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>madrid_pollution <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"https://raw.githubusercontent.com/jmgraham30/data-science-a-first-intro-worksheets/main/worksheet_wrangling/data/madrid_pollution.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>avocado_prices <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/UBC-DSCI/data-science-a-first-intro-worksheets/main/worksheet_wrangling/data/avocado_prices.csv"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>madrid_pollution <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"https://raw.githubusercontent.com/jmgraham30/data-science-a-first-intro-worksheets/main/worksheet_wrangling/data/madrid_pollution.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol type="1">
 <li><p>The avocado prices data set stored as <code>avocado_prices</code> comes from the <a href="http://www.hassavocadoboard.com/">Hass Avocado Board website</a>. Some relevant columns in the data set:</p>
@@ -263,6 +266,27 @@ conventional      organic
 </div>
 </div>
 <p>What does this plot tell us about the four pollutants <code>BEN</code>, <code>CO</code>, <code>SO_2</code>, and <code>TCH</code>?</p>
+</section>
+<section id="problem-6" class="level3">
+<h3 class="anchored" data-anchor-id="problem-6">Problem 6</h3>
+<p><a href="#fig-fancy-fig">Figure&nbsp;1</a> show a plot of the body mass vs.&nbsp;flipper length of penguins from the Palmer Penguins data set that is available through the <code>palmerpenguins</code> package. Use this plot to answer the questions below.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fancy-fig" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-fancy-fig-1.png" class="img-fluid figure-img" alt="A scatterplot of body mass vs. flipper length of penguins, with a best fit line of the relationship between these two variables overlaid. The plot displays a positive, fairly linear, and relatively strong relationship between these two variables. Species (Adelie, Chinstrap, and Gentoo) are represented with different colors and shapes. The relationship between body mass and flipper length is roughly the same for these three species, and Gentoo penguins are larger than penguins from the other two species." width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Scatterplot of body mass vs.&nbsp;flipper length of penguins from the Palmer Penguins data set.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ol type="a">
+<li><p>Based on the plot, how would you describe the relationship between body mass vs.&nbsp;flipper length?</p></li>
+<li><p>Is the relationship between body mass vs.&nbsp;flipper length different for different species?</p></li>
+<li><p>Does the plot indicate any difference between the different species of penguins? If so, explain the differences.</p></li>
+<li><p>What aesthetics are used in the plot for <a href="#fig-fancy-fig">Figure&nbsp;1</a>? Describe how the different aesthetics are used.</p></li>
+<li><p>Do you think the plot in <a href="#fig-fancy-fig">Figure&nbsp;1</a> is effective? Explain why or why not.</p></li>
+</ol>
 </section>
 </section>
 

@@ -16,7 +16,7 @@ Please complete and turn in this assignment as a Quarto notebook.
 
 ## Data for Homework Problems
 
-This homework will involve the use of two data sets so, you should begin your Quarto notebook by including and running the follow R code chunk that loads the necessary packages and imports the data:
+This homework will involve the use of two data sets so, you should begin your Quarto notebook by including and running the follow R code chunk that loads the necessary packages (make sure you have the packages `tidyverse`, `ggthemes`,  and `palmerpenguins` installed) and imports the data:
 
 ```{r}
 #| echo: true
@@ -25,6 +25,8 @@ This homework will involve the use of two data sets so, you should begin your Qu
 #| message: false
 
 library(tidyverse)
+library(palmerpenguins)
+library(ggthemes)
 
 avocado_prices <- read_csv("https://raw.githubusercontent.com/UBC-DSCI/data-science-a-first-intro-worksheets/main/worksheet_wrangling/data/avocado_prices.csv")
 
@@ -173,3 +175,46 @@ madrid_pollution_red_long %>%
 
 What does this plot tell us about the four pollutants `BEN`, `CO`, `SO_2`, and `TCH`?
 
+### Problem 6
+
+@fig-fancy-fig show a plot of the body mass vs. flipper length of penguins from the Palmer Penguins data set that is available through the `palmerpenguins` package. Use this plot to answer the questions below.
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-fancy-fig
+#| fig-cap: Scatterplot of body mass vs. flipper length of penguins from the Palmer Penguins data set.
+#| fig-alt: |
+#|   A scatterplot of body mass vs. flipper length of penguins, with a
+#|   best fit line of the relationship between these two variables 
+#|   overlaid. The plot displays a positive, fairly linear, and relatively 
+#|   strong relationship between these two variables. Species (Adelie, 
+#|   Chinstrap, and Gentoo) are represented with different colors and 
+#|   shapes. The relationship between body mass and flipper length is 
+#|   roughly the same for these three species, and Gentoo penguins are 
+#|   larger than penguins from the other two species.
+
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species, shape = species)) +
+  geom_smooth(method = "lm") +
+  labs(
+    title = "Body mass and flipper length",
+    subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
+    x = "Flipper length (mm)",
+    y = "Body mass (g)",
+    color = "Species",
+    shape = "Species"
+  ) +
+  scale_color_colorblind()
+```
+
+
+a. Based on the plot, how would you describe the relationship between body mass vs. flipper length?
+
+b. Is the relationship between body mass vs. flipper length different for different species?
+
+c. Does the plot indicate any difference between the different species of penguins? If so, explain the differences. 
+
+d. What aesthetics are used in the plot for @fig-fancy-fig? Describe how the different aesthetics are used. 
+
+e. Do you think the plot in @fig-fancy-fig is effective? Explain why or why not. 
