@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-for-homework-problems" class="level2">
 <h2 class="anchored" data-anchor-id="data-for-homework-problems">Data for Homework Problems</h2>
-<p>This homework will involve the use of three data sets so you should begin you Quarto notebook by including and running the follow R code chunk that loads the necessary packages and imports the data:</p>
+<p>This homework will involve the use of two data sets so, you should begin your Quarto notebook by including and running the follow R code chunk that loads the necessary packages and imports the data:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -126,37 +126,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>madrid_pollution <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"https://raw.githubusercontent.com/jmgraham30/data-science-a-first-intro-worksheets/main/worksheet_wrangling/data/madrid_pollution.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ul>
+<ol type="1">
 <li>The avocado prices data set stored as <code>avocado_prices</code> comes from the <a href="http://www.hassavocadoboard.com/">Hass Avocado Board website</a>.</li>
-</ul>
+</ol>
 <p>Some relevant columns in the data set:</p>
 <ul>
-<li><p><code>Date</code> - The date in year-month-day format</p></li>
-<li><p><code>average_price</code> - The average price of a single avocado</p></li>
-<li><p><code>type</code> - conventional or organic</p></li>
-<li><p><code>yr</code> - The year</p></li>
-<li><p><code>region</code> - The city or region of the observation</p></li>
-<li><p><code>small_hass_volume</code> in pounds (lbs)<br>
-</p></li>
-<li><p><code>large_hass_volume</code> in pounds (lbs)<br>
-</p></li>
-<li><p><code>extra_l_hass_volume</code> in pounds (lbs)</p></li>
-<li><p><code>wk</code> - integer number for the calendar week in the year (e.g., first week of January is 1, and last week of December is 52).</p></li>
-<li><p>The Madrid pollution data set stored as <code>madrid_pollution</code> comes from <a href="https://www.kaggle.com/decide-soluciones/air-quality-madrid">Kaggle</a>. This data was collected under the instructions from Madrid’s City Council and is publicly available on their website. This data consists of measurements from vehcile inspection stations, the list of possible measurements and their explanations are given by the website:</p></li>
-<li><p><code>SO_2</code>: sulphur dioxide level measured in μg/m³. High levels can produce irritation in the skin and membranes, and worsen asthma or heart diseases in sensitive groups.</p></li>
-<li><p><code>CO</code>: carbon monoxide level measured in mg/m³. Carbon monoxide poisoning involves headaches, dizziness and confusion in short exposures and can result in loss of consciousness, arrhythmias, seizures or even death.</p></li>
-<li><p><code>NO_2</code>: nitrogen dioxide level measured in μg/m³. Long-term exposure is a cause of chronic lung diseases, and are harmful for the vegetation.</p></li>
-<li><p><code>PM10</code>: particles smaller than 10 μm. Even though they cannot penetrate the alveolus, they can still penetrate through the lungs and affect other organs. Long term exposure can result in lung cancer and cardiovascular complications.</p></li>
-<li><p><code>NOx</code>: nitrous oxides level measured in μg/m³. Affect the human respiratory system worsening asthma or other diseases, and are responsible of the yellowish-brown color of photochemical smog.</p></li>
-<li><p><code>O_3</code>: ozone level measured in μg/m³. High levels can produce asthma, bronchytis or other chronic pulmonary diseases in sensitive groups or outdoor workers.</p></li>
-<li><p><code>TOL</code>: toluene (methylbenzene) level measured in μg/m³. Long-term exposure to this substance (present in tobacco smoke as well) can result in kidney complications or permanent brain damage.</p></li>
-<li><p><code>BEN</code>: benzene level measured in μg/m³. Benzene is a eye and skin irritant, and long exposures may result in several types of cancer, leukaemia and anaemias. Benzene is considered a group 1 carcinogenic to humans.</p></li>
-<li><p><code>EBE</code>: ethylbenzene level measured in μg/m³. Long term exposure can cause hearing or kidney problems and the IARC has concluded that long-term exposure can produce cancer.</p></li>
-<li><p><code>MXY</code>: m-xylene level measured in μg/m³. Xylenes can affect not only air but also water and soil, and a long exposure to high levels of xylenes can result in diseases affecting the liver, kidney and nervous system.</p></li>
-<li><p><code>PXY</code>: p-xylene level measured in μg/m³. See MXY for xylene exposure effects on health.</p></li>
-<li><p><code>OXY</code>: o-xylene level measured in μg/m³. See MXY for xylene exposure effects on health.</p></li>
-<li><p><code>TCH</code>: total hydrocarbons level measured in mg/m³. This group of substances can be responsible of different blood, immune system, liver, spleen, kidneys or lung diseases.</p></li>
-<li><p><code>NMHC</code>: non-methane hydrocarbons (volatile organic compounds) level measured in mg/m³. Long exposure to some of these substances can result in damage to the liver, kidney, and central nervous system. Some of them are suspected to cause cancer in humans.</p></li>
+<li><code>Date</code> - The date in year-month-day format</li>
+<li><code>average_price</code> - The average price of a single avocado</li>
+<li><code>type</code> - conventional or organic</li>
+<li><code>yr</code> - The year</li>
+<li><code>region</code> - The city or region of the observation</li>
+<li><code>small_hass_volume</code> in pounds (lbs)<br>
+</li>
+<li><code>large_hass_volume</code> in pounds (lbs)<br>
+</li>
+<li><code>extra_l_hass_volume</code> in pounds (lbs)</li>
+<li><code>wk</code> - integer number for the calendar week in the year (e.g., first week of January is 1, and last week of December is 52).</li>
+</ul>
+<ol start="2" type="1">
+<li>The Madrid pollution data set stored as <code>madrid_pollution</code> comes from <a href="https://www.kaggle.com/decide-soluciones/air-quality-madrid">Kaggle</a>. This data was collected under the instructions from Madrid’s City Council and is publicly available on their website. This data consists of measurements from vehcile inspection stations, the list of possible measurements and their explanations are given by the website:</li>
+</ol>
+<ul>
+<li><code>SO_2</code>: sulphur dioxide level measured in μg/m³. High levels can produce irritation in the skin and membranes, and worsen asthma or heart diseases in sensitive groups.</li>
+<li><code>CO</code>: carbon monoxide level measured in mg/m³. Carbon monoxide poisoning involves headaches, dizziness and confusion in short exposures and can result in loss of consciousness, arrhythmias, seizures or even death.</li>
+<li><code>NO_2</code>: nitrogen dioxide level measured in μg/m³. Long-term exposure is a cause of chronic lung diseases, and are harmful for the vegetation.</li>
+<li><code>PM10</code>: particles smaller than 10 μm. Even though they cannot penetrate the alveolus, they can still penetrate through the lungs and affect other organs. Long term exposure can result in lung cancer and cardiovascular complications.</li>
+<li><code>NOx</code>: nitrous oxides level measured in μg/m³. Affect the human respiratory system worsening asthma or other diseases, and are responsible of the yellowish-brown color of photochemical smog.</li>
+<li><code>O_3</code>: ozone level measured in μg/m³. High levels can produce asthma, bronchytis or other chronic pulmonary diseases in sensitive groups or outdoor workers.</li>
+<li><code>TOL</code>: toluene (methylbenzene) level measured in μg/m³. Long-term exposure to this substance (present in tobacco smoke as well) can result in kidney complications or permanent brain damage.</li>
+<li><code>BEN</code>: benzene level measured in μg/m³. Benzene is a eye and skin irritant, and long exposures may result in several types of cancer, leukaemia and anaemias. Benzene is considered a group 1 carcinogenic to humans.</li>
+<li><code>EBE</code>: ethylbenzene level measured in μg/m³. Long term exposure can cause hearing or kidney problems and the IARC has concluded that long-term exposure can produce cancer.</li>
+<li><code>MXY</code>: m-xylene level measured in μg/m³. Xylenes can affect not only air but also water and soil, and a long exposure to high levels of xylenes can result in diseases affecting the liver, kidney and nervous system.</li>
+<li><code>PXY</code>: p-xylene level measured in μg/m³. See MXY for xylene exposure effects on health.</li>
+<li><code>OXY</code>: o-xylene level measured in μg/m³. See MXY for xylene exposure effects on health.</li>
+<li><code>TCH</code>: total hydrocarbons level measured in mg/m³. This group of substances can be responsible of different blood, immune system, liver, spleen, kidneys or lung diseases.</li>
+<li><code>NMHC</code>: non-methane hydrocarbons (volatile organic compounds) level measured in mg/m³. Long exposure to some of these substances can result in damage to the liver, kidney, and central nervous system. Some of them are suspected to cause cancer in humans.</li>
 </ul>
 </section>
 <section id="problems" class="level2">
@@ -208,7 +212,34 @@ conventional      organic
 <ol start="2" type="a">
 <li><p>Use an appropriate command(s) to filter the rows of the data set for which the type is organic.</p></li>
 <li><p>Use an appropriate command(s) to select the average price, type, and region variables from the data set.</p></li>
-<li><p>Use an appropriate command(s) to compute the mean for the <code>average_price</code> variables grouped by region and filter rows with the regions with the top ten mean <code>average_price</code> values.</p></li>
+<li><p>Use an appropriate command(s) to compute the mean for the <code>average_price</code> variable grouped by region and filter rows with the regions with the top ten mean <code>average_price</code> values. Which ten regions have the highest mean for <code>average_price</code>?</p></li>
+<li><p>The <code>mutate</code> function can be used to create new variables from existing ones. Run the following command to create a new variable named <code>total_volume</code> that is made up by adding together the small, large, and extra large volumes from the <code>avocado_prices</code> data.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>avocado_prices <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_volume =</span> small_hass_volume <span class="sc">+</span> large_hass_volume <span class="sc">+</span> extra_l_hass_volume)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 17,911 × 10
+   Date       average_price small_hass_volume large_hass_volume
+   &lt;date&gt;             &lt;dbl&gt;             &lt;dbl&gt;             &lt;dbl&gt;
+ 1 2015-12-27          1.33             1037.            54455.
+ 2 2015-12-20          1.35              674.            44639.
+ 3 2015-12-13          0.93              795.           109150.
+ 4 2015-12-06          1.08             1132             71976.
+ 5 2015-11-29          1.28              941.            43838.
+ 6 2015-11-22          1.26             1184.            48068.
+ 7 2015-11-15          0.99             1369.            73673.
+ 8 2015-11-08          0.98              704.           101815.
+ 9 2015-11-01          1.02             1022.            87316.
+10 2015-10-25          1.07              842.            64757.
+# ℹ 17,901 more rows
+# ℹ 6 more variables: extra_l_hass_volume &lt;dbl&gt;, type &lt;chr&gt;, yr &lt;dbl&gt;,
+#   region &lt;chr&gt;, wk &lt;dbl&gt;, total_volume &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<ol start="6" type="a">
+<li><p>Now that you know how to create the <code>total_volume</code> variable, use an appropriate command(s) to compute the average total volume by year.</p></li>
+<li><p>Use an appropriate command(s) to compute the average total volume by year for each region.</p></li>
 </ol>
 </section>
 </section>

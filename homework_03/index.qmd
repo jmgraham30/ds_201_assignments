@@ -16,7 +16,7 @@ Please complete and turn in this assignment as a Quarto notebook.
 
 ## Data for Homework Problems
 
-This homework will involve the use of three data sets so you should begin you Quarto notebook by including and running the follow R code chunk that loads the necessary packages and imports the data:
+This homework will involve the use of two data sets so, you should begin your Quarto notebook by including and running the follow R code chunk that loads the necessary packages and imports the data:
 
 ```{r}
 #| echo: true
@@ -31,7 +31,7 @@ avocado_prices <- read_csv("https://raw.githubusercontent.com/UBC-DSCI/data-scie
 madrid_pollution <- read_tsv("https://raw.githubusercontent.com/jmgraham30/data-science-a-first-intro-worksheets/main/worksheet_wrangling/data/madrid_pollution.csv")
 ```
 
-* The avocado prices data set stored as `avocado_prices` comes from the [Hass Avocado Board website](http://www.hassavocadoboard.com/).
+1. The avocado prices data set stored as `avocado_prices` comes from the [Hass Avocado Board website](http://www.hassavocadoboard.com/).
 
 Some relevant columns in the data set:
 
@@ -45,7 +45,7 @@ Some relevant columns in the data set:
 - `extra_l_hass_volume`	in pounds (lbs)	
 - `wk` - integer number for the calendar week in the year (e.g., first week of January is 1, and last week of December is 52).
 
-* The Madrid pollution data set stored as `madrid_pollution` comes from [Kaggle](https://www.kaggle.com/decide-soluciones/air-quality-madrid). This data was collected under the instructions from Madrid's City Council and is publicly available on their website. This data consists of measurements from vehcile inspection stations, the list of possible measurements and their explanations are given by the website:
+2. The Madrid pollution data set stored as `madrid_pollution` comes from [Kaggle](https://www.kaggle.com/decide-soluciones/air-quality-madrid). This data was collected under the instructions from Madrid's City Council and is publicly available on their website. This data consists of measurements from vehcile inspection stations, the list of possible measurements and their explanations are given by the website:
 
 - `SO_2`: sulphur dioxide level measured in μg/m³. High levels can produce irritation in the skin and membranes, and worsen asthma or heart diseases in sensitive groups.
 - `CO`: carbon monoxide level measured in mg/m³. Carbon monoxide poisoning involves headaches, dizziness and confusion in short exposures and can result in loss of consciousness, arrhythmias, seizures or even death.
@@ -124,6 +124,22 @@ b. Use an appropriate command(s) to filter the rows of the data set for which th
 c. Use an appropriate command(s) to select the average price, type, and region variables from the data set. 
 
 
-d. Use an appropriate command(s) to compute the mean for the `average_price` variables grouped by region and filter rows with the regions with the top ten mean `average_price` values.
+d. Use an appropriate command(s) to compute the mean for the `average_price` variable grouped by region and filter rows with the regions with the top ten mean `average_price` values. Which ten regions have the highest mean for `average_price`?
+
+e. The `mutate` function can be used to create new variables from existing ones. Run the following command to create a new variable named `total_volume` that is made up by adding together the small, large, and extra large volumes from the `avocado_prices` data. 
+
+```{r}
+avocado_prices %>%
+  mutate(total_volume = small_hass_volume + large_hass_volume + extra_l_hass_volume)
+```
+
+f. Now that you know how to create the `total_volume` variable, use an appropriate command(s) to compute the average total volume by year. 
+
+
+g. Use an appropriate command(s) to compute the average total volume by year for each region.
+
+
+
+
 
 
