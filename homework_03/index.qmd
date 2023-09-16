@@ -31,36 +31,34 @@ avocado_prices <- read_csv("https://raw.githubusercontent.com/UBC-DSCI/data-scie
 madrid_pollution <- read_tsv("https://raw.githubusercontent.com/jmgraham30/data-science-a-first-intro-worksheets/main/worksheet_wrangling/data/madrid_pollution.csv")
 ```
 
-1. The avocado prices data set stored as `avocado_prices` comes from the [Hass Avocado Board website](http://www.hassavocadoboard.com/).
+1. The avocado prices data set stored as `avocado_prices` comes from the [Hass Avocado Board website](http://www.hassavocadoboard.com/). Some relevant columns in the data set:
 
-Some relevant columns in the data set:
-
-- `Date` - The date in year-month-day format
-- `average_price` - The average price of a single avocado
-- `type` - conventional or organic
-- `yr` - The year
-- `region` - The city or region of the observation
-- `small_hass_volume` in pounds (lbs)	
-- `large_hass_volume` in pounds (lbs)		
-- `extra_l_hass_volume`	in pounds (lbs)	
-- `wk` - integer number for the calendar week in the year (e.g., first week of January is 1, and last week of December is 52).
+    - `Date` - The date in year-month-day format
+    - `average_price` - The average price of a single avocado
+    - `type` - conventional or organic
+    - `yr` - The year
+    - `region` - The city or region of the observation
+    - `small_hass_volume` in pounds (lbs)	
+    - `large_hass_volume` in pounds (lbs)		
+    - `extra_l_hass_volume`	in pounds (lbs)	
+    - `wk` - integer number for the calendar week in the year (e.g., first week of January is 1, and last week of December is 52).
 
 2. The Madrid pollution data set stored as `madrid_pollution` comes from [Kaggle](https://www.kaggle.com/decide-soluciones/air-quality-madrid). This data was collected under the instructions from Madrid's City Council and is publicly available on their website. This data consists of measurements from vehcile inspection stations, the list of possible measurements and their explanations are given by the website:
 
-- `SO_2`: sulphur dioxide level measured in μg/m³. High levels can produce irritation in the skin and membranes, and worsen asthma or heart diseases in sensitive groups.
-- `CO`: carbon monoxide level measured in mg/m³. Carbon monoxide poisoning involves headaches, dizziness and confusion in short exposures and can result in loss of consciousness, arrhythmias, seizures or even death.
-- `NO_2`: nitrogen dioxide level measured in μg/m³. Long-term exposure is a cause of chronic lung diseases, and are harmful for the vegetation.
-- `PM10`: particles smaller than 10 μm. Even though they cannot penetrate the alveolus, they can still penetrate through the lungs and affect other organs. Long term exposure can result in lung cancer and cardiovascular complications.
-- `NOx`: nitrous oxides level measured in μg/m³. Affect the human respiratory system worsening asthma or other diseases, and are responsible of the yellowish-brown color of photochemical smog.
-- `O_3`: ozone level measured in μg/m³. High levels can produce asthma, bronchytis or other chronic pulmonary diseases in sensitive groups or outdoor workers.
-- `TOL`: toluene (methylbenzene) level measured in μg/m³. Long-term exposure to this substance (present in tobacco smoke as well) can result in kidney complications or permanent brain damage.
-- `BEN`: benzene level measured in μg/m³. Benzene is a eye and skin irritant, and long exposures may result in several types of cancer, leukaemia and anaemias. Benzene is considered a group 1 carcinogenic to humans.
-- `EBE`: ethylbenzene level measured in μg/m³. Long term exposure can cause hearing or kidney problems and the IARC has concluded that long-term exposure can produce cancer.
-- `MXY`: m-xylene level measured in μg/m³. Xylenes can affect not only air but also water and soil, and a long exposure to high levels of xylenes can result in diseases affecting the liver, kidney and nervous system.
-- `PXY`: p-xylene level measured in μg/m³. See MXY for xylene exposure effects on health.
-- `OXY`: o-xylene level measured in μg/m³. See MXY for xylene exposure effects on health.
-- `TCH`: total hydrocarbons level measured in mg/m³. This group of substances can be responsible of different blood, immune system, liver, spleen, kidneys or lung diseases.
-- `NMHC`: non-methane hydrocarbons (volatile organic compounds) level measured in mg/m³. Long exposure to some of these substances can result in damage to the liver, kidney, and central nervous system. Some of them are suspected to cause cancer in humans.
+    - `SO_2`: sulphur dioxide level measured in μg/m³. High levels can produce irritation in the skin and membranes, and worsen asthma or heart diseases in sensitive groups.
+    - `CO`: carbon monoxide level measured in mg/m³. Carbon monoxide poisoning involves headaches, dizziness and confusion in short exposures and can result in loss of consciousness, arrhythmias, seizures or even death.
+    - `NO_2`: nitrogen dioxide level measured in μg/m³. Long-term exposure is a cause of chronic lung diseases, and are harmful for the vegetation.
+    - `PM10`: particles smaller than 10 μm. Even though they cannot penetrate the alveolus, they can still penetrate through the lungs and affect other organs. Long term exposure can result in lung cancer and cardiovascular complications.
+    - `NOx`: nitrous oxides level measured in μg/m³. Affect the human respiratory system worsening asthma or other diseases, and are responsible of the yellowish-brown color of photochemical smog.
+    - `O_3`: ozone level measured in μg/m³. High levels can produce asthma, bronchytis or other chronic pulmonary diseases in sensitive groups or outdoor workers.
+    - `TOL`: toluene (methylbenzene) level measured in μg/m³. Long-term exposure to this substance (present in tobacco smoke as well) can result in kidney complications or permanent brain damage.
+    - `BEN`: benzene level measured in μg/m³. Benzene is a eye and skin irritant, and long exposures may result in several types of cancer, leukaemia and anaemias. Benzene is considered a group 1 carcinogenic to humans.
+    - `EBE`: ethylbenzene level measured in μg/m³. Long term exposure can cause hearing or kidney problems and the IARC has concluded that long-term exposure can produce cancer.
+    - `MXY`: m-xylene level measured in μg/m³. Xylenes can affect not only air but also water and soil, and a long exposure to high levels of xylenes can result in diseases affecting the liver, kidney and nervous system.
+    - `PXY`: p-xylene level measured in μg/m³. See MXY for xylene exposure effects on health.
+    - `OXY`: o-xylene level measured in μg/m³. See MXY for xylene exposure effects on health.
+    - `TCH`: total hydrocarbons level measured in mg/m³. This group of substances can be responsible of different blood, immune system, liver, spleen, kidneys or lung diseases.
+    - `NMHC`: non-methane hydrocarbons (volatile organic compounds) level measured in mg/m³. Long exposure to some of these substances can result in damage to the liver, kidney, and central nervous system. Some of them are suspected to cause cancer in humans.
 
 ## Problems
 
@@ -149,7 +147,7 @@ a. Use an appropriate command(s) to compute the average carbon monoxide level by
 
 b. Create a new data frame that contains only the columns `date`,`year`,`mnth`, `SO_2`, `BEN`, `CO`, and `TCH`;  and store the results in a variable called `madrid_pollution_red`.
 
-b. Use `pivot_longer` to combine all the pollutant measurements from you new data frame `madrid_pollution_red` into a single column called `poll_measure` and set `names_to = "pollutant"`. Store the result in a new variable named `madrid_pollution_red_long`.
+c. Use `pivot_longer` to combine all the pollutant measurements from you new data frame `madrid_pollution_red` into a single column called `poll_measure` and set `names_to = "pollutant"`. Store the result in a new variable named `madrid_pollution_red_long`.
 
 ```{r}
 #| include: false
@@ -158,7 +156,7 @@ madrid_pollution_red_long <- madrid_pollution %>%
   pivot_longer(cols=-c(date,year,mnth),names_to = "pollutant",values_to = "poll_measure")
 ```
 
-c. Now that you have your new variable `madrid_pollution_red_long` run the following command to produce a plot:
+d. Now that you have your new variable `madrid_pollution_red_long` run the following command to produce a plot:
 
 ```{r}
 #| message: false
