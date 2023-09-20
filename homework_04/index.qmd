@@ -1,0 +1,21 @@
+---
+title: "DS 201 Homework 4"
+format: 
+  html:
+    theme: pulse 
+    toc: true 
+---
+
+This is Homework Assignment 4 for DS 201. You can view the source code for this assignment on GitHub: [view the source code](https://github.com/jmgraham30/ds_201_assignments/blob/main/homework_04/index.qmd).
+
+For your amusement: What's made of leather and sounds like a sneeze? A shoe! 
+
+
+## Instructions
+
+Please complete and turn in this assignment as a Quarto notebook. 
+
+
+## Problems
+
+### Problem 1
