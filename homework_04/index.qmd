@@ -4,6 +4,7 @@ format:
   html:
     theme: pulse 
     toc: true 
+    self-contained: true
 ---
 
 This is Homework Assignment 4 for DS 201. You can view the source code for this assignment on GitHub: [view the source code](https://github.com/jmgraham30/ds_201_assignments/blob/main/homework_04/index.qmd).
@@ -15,7 +16,222 @@ For your amusement: What's made of leather and sounds like a sneeze? A shoe!
 
 Please complete and turn in this assignment as a Quarto notebook. 
 
+### Data For Assignment
+
+This homework will involve the use of a few data sets so, you should begin your Quarto notebook by including and running the follow R code chunk that loads the necessary packages and imports the data:
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(ggthemes)
+library(palmerpenguins)
+
+avocada_url <- "https://raw.githubusercontent.com/UBC-DSCI/data-science-a-first-intro-worksheets/main/worksheet_wrangling/data/avocado_prices.csv"
+
+vaccine_url <- "https://raw.githubusercontent.com/jmgraham30/data-science-a-first-intro-worksheets/main/worksheet_viz/data/world_vaccination.csv"
+
+avocado_prices <- read_csv(avocada_url)
+
+world_vaccination <- read_csv(vaccine_url)
+
+```
+
+
+1. The avocado prices data stored as `avocado_prices` is one of the data sets we worked with in the previous homework assignment so you should already be familiar with it. 
+
+2. The world vaccination data stored as `world_vaccination` comes from the [World Health Organization](https://www.who.int/) (WHO). According to WHO, Polio is a disease that affects mostly children younger than 5 years old, and to date there is no cure. However, when given a vaccine, children can develop sufficient antibodies in their system to be immune to the disease. Another disease, Hepatitis B, is also known to affect infants but in a chronic manner. There is also a vaccine for Hepatitis B available. The world vaccination data pertains to these two vaccines. 
+
+The columns in the dataset are:
+
+- `who_region` - The WHO region of the world
+- `yr` - The year
+- `pct_vaccinated` - Estimated percentage of people vaccinated in the region
+- `vaccine` - Whether it's the `polio` or the `hepatitis_b` vaccine
+
+We want to know two things. First, has there been a change in Polio or Hepatitis B vaccination patterns throughout the years? And if so, what is that pattern? Second, have the vaccination patterns for one of these diseases changed more than the other? We will use some of the data visualization techniques covered in lecture to explore these questions via the data.  
 
 ## Problems
 
 ### Problem 1
+
+a. For each of the items below, which are aesthetics in `ggplot2`? 
+
+    A. `color` 
+    
+    B. `scale` 
+    
+    C. `x` 
+    
+    D. `fill` 
+    
+    E. `type`
+
+
+b. When deciding on the size of your visualization we recommend that you: 
+
+    A. Only make the plot area (where the dots, lines, bars are) as big as needed
+
+    B. Make it as big as your screen allows
+
+    C. Use the default given by `ggplot`
+    
+c. What is the symbol used to add a new layer to a `ggplot` object?
+
+    A. `<-`
+
+    B. `|>`
+
+    C. `%&%`
+
+    D. `+`
+
+
+d. Match the following geometric objects to their corresponding visualization purposes.
+
+    1. `geom_histogram`
+    
+    2. `geom_hline`
+    
+    3. `geom_point`
+    
+    4. `geom_line`
+    
+    5. `geom_vline`
+    
+    6. `geom_bar`
+
+    A. Visualizing the distribution of data in one dimension.
+    
+    B. Visualizing the relationship between two variables in two dimensions.
+    
+    C. Comparing amounts.
+    
+    D. Drawing a straight, vertical line at a specified position on the x-axis.  
+    
+    E. Drawing a straight, horizontal line at a specified position on the y-axis. 
+    F. Showing a trend with respect to an independent quantity.
+
+
+### Problem 2
+
+This problem relates to the world vaccination data stored as `world_vaccination`.
+
+a. Consider the variables `yr` and `pct_vaccinated`. These variables are:
+
+    A. both quantitative (e.g., numerical).
+
+    B. both categorical
+
+    C. one is categorical and one is quantitative
+
+    D. None of the above. 
+    
+b. Filter the data so that we don't have any missing values, that is, NA's in the `pct_vaccinated` column. We also want to filter out (i.e., remove) the `(WHO) Global` region as it is just the average of the other regions. Assign the remaining data (without the `(WHO) Global` region) to an object called `world_vaccination`.
+
+**Hint:** The function `is.na()` is a function that indicates which elements are missing. Since the `!=` operator filters rows that are *not equal* to something, we can use `!is.na()` to find the values that are *not equal to NA*. For example, to remove all the rows in the `penguins` data set where `bill_length_mm ` has NA's we would do the following:
+
+```{r}
+penguins <- penguins %>%
+  filter(!is.na(bill_length_mm))
+  
+```
+
+Make sure to store your filtered data set as a variable, you can reuse `world_vaccination` again similar to what was done in the example command for `penguins`.
+
+### Problem 3
+
+a. Create a scatter plot of the percentage of people vaccinated (y-axis) against year (x-axis) for all the regions in `world_vaccination`. Make sure to label your axes with human readable labels. 
+
+*Assign your plot to an object called `world_vacc_plot`*.
+
+b. Now that we see how the percentage of people vaccinated with each of these vaccines varies over time, we should now start to look if there is a difference between the percentage vaccinated between the two different diseases. What should we do next to compare the differences (if they exist) most effectively?
+
+    A. Filter the data by the type of vaccine and make two separate plots
+
+    B. Color the data by the type of vaccine
+
+    C. Have a different shaped "dot"/point for each type of vaccine
+
+    D. Color the data by the type of vaccine, and have a different shaped "dot"/point for each type of vaccine
+    
+c. Next, add an `aes` function inside of the `geom_point` function to map `vaccine` to color and shape. So your `geom_point` function and layer should look something like this: 
+
+```
+geom_point(aes(color = ..., shape = ...))  +
+```
+
+Finally, make sure you change *all* the axes and legends so they have nicely formatted, human-readable labels. To do this, we will remove the `xlab` and `ylab` label functions and just use the more general `labs` function, specifying all the aesthetics we want to label:
+
+```
+labs(x = "...", y = "...", color = "...", shape = "...")
+```
+
+*Assign your answer to an object called `compare_vacc_plot`.*
+
+### Problem 4
+
+Now we see that although the dates where the percentage vaccinated became > 0 for each vaccine type started out in different years, they both increased at similar rates and are currently resting at about the same amount of percentage vaccinated. There is some variation that still exists in the data however, and perhaps that could be attributed to region? Let's create some more visualizations to see if that is indeed the case!
+
+To get started, let's focus on the Polio vaccine data, and then we'll look at both together.
+
+a. Create a data frame object named `polio` that contains only the rows where the `vaccine` is `"polio"`.
+
+b. Now create a scatter plot using the `polio` data where percentage vaccinated is on the y-axis, year is on the x-axis and each group has a different colored point, and a different shape. Name it `polio_regions`. 
+
+c. Although changing point color and shape makes it easier for us to see the differences between multiple groups, at some point there are just too many groups to keep things straight. We are approaching this limit in the plot above, so we need to do something different... One thing we could try is to change the point to a line to reduce the noise/chaos of the plot above. We would also not have a shape. Do that in the cell below and name the plot object `polio_regions_line`.
+
+d. What conclusions do you draw from the last plot?
+
+### Problem 5
+
+This problem asks you to create some plots for the avocado prices data stored as `avocado_prices`. 
+
+a. There are three Pennsylvania regions for the avocados in the data. They are labeled as `HarrisburgScranton`, `Philadelphia`, and `Pittsburgh`. Create a variable named `avocado_prices_pa` that is the result of filtering out the data where the region is just the three PA regions.
+
+b. Create a stacked bar plot that shows how many avocados of each type there are in each of the three PA regions. Make sure to use a. colorblind friendly color palette and nice axis labels. 
+
+c. Run the following command and explain what it does:
+
+```{r}
+#| code-fold: false
+#| eval: false
+
+avocado_prices_pa %>%
+  ggplot(aes(x=Date,y=average_price)) + 
+  geom_point(aes(color=region)) + 
+  facet_wrap(~type) +
+  scale_color_colorblind() +
+  labs(x="Date", y = "Avg. Price for Avocados", color="PA Region") 
+  
+```
+
+What conclusions can you draw from the previous plot?
+
+
+### Problem 6
+
+In this problem, we will explore how the average price for avocados varies from week to week per year for a region and avocado type. 
+
+The following code produces a plot that shows how the average price for conventional avocados varies from week to week per year in the Pittsburgh region.  
+
+```{r}
+#| code-fold: false
+#| eval: false
+
+avocado_prices_pa %>%
+  filter(region == "Pittsburgh",type == "conventional") %>%
+  ggplot(aes(x=wk,y=average_price,color=as.factor(yr))) + 
+  geom_line() + 
+  scale_color_colorblind() + 
+  facet_wrap(~yr)  + 
+  labs(x = "Week of year",y="Avg. Price", color = "Year")
+```
+
+
+a. Modify the previous code to produce a similar plot for the Harrisburg-Scranton region. What conclusions can you draw from your plot?
+
+b. Create an effective visualization that allows one to explore how  the average price for **both** conventional and organic avocados varies from week to week per year in the Harrisburg-Scranton region.
