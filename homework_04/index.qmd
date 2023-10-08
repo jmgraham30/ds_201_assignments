@@ -113,6 +113,7 @@ d. Match the following geometric objects to their corresponding visualization pu
     D. Drawing a straight, vertical line at a specified position on the x-axis.  
     
     E. Drawing a straight, horizontal line at a specified position on the y-axis. 
+    
     F. Showing a trend with respect to an independent quantity.
 
 
