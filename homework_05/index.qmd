@@ -14,11 +14,93 @@ For your amusement: What is an astronomer's favorite key on the keyboard? The sp
 
 ## Instructions
 
-Please complete and turn in this assignment as a Quarto notebook. 
+This assignment contains some problems that should be worked out by hand and others where you will want to use R. For the handwritten problems, you may either scan your work or take a picture of it and upload it to the DropBox; or you may hand in a hard copy of your work. For the R problems, you should include your code and the output in a Quarto notebook.
 
 ## Problems
 
 
 ### Problem 1
 
+Rolling a six-sided die is another example of a random experiment. 
+
+a. Describe using mathematical notation the sample space for this experiment.
+
+b. Describe using mathematical notation the event that the outcome is an even number.
+
+c. What is the probability of the event that the outcome is an even number, assuming that the die is fair?
+
+### Problem 2
+
+A fair coin is tossed three times. 
+
+a. Describe using mathematical notation the sample space for this experiment.
+
+b. Describe using mathematical notation the event that the outcome is two heads.
+
+c. What is the probability of the event that the outcome is two heads, assuming that the coin is fair?
+
+### Problem 3
+
+Each time a person shops at a grocery store, the event of catching a cold or some other virus from another shopper is independent from visit to visit and has a constant probability over the year, equal to 0.01.
+
+a. Sometimes, people are tempted to use the following incorrect reasoning: In 100 trips to this store over the course of a year, the probability of catching a virus while shopping there is $100 \cdot 0.01 = 1.0$. What is wrong with this reasoning?
+
+b. Find the correct probability in part (a). 
+
+### Problem 4
+
+In lecture, we considered the random variable that counts the number of heads out of three tosses of a fair coin. 
+
+a. Create a table similar to that of Table 2 in Lesson 6 but for the random variable that counts the number of heads out of four tosses of a fair coin.
+
+b. Compute the mean and standard deviation of this random variable directly by hand.
+
+c. Compute the mean and standard deviation of this random variable using facts we stated about binomial random variables in Lesson 6.
+
+### Problem 5
+
+A quiz has ten multiple-choice questions, with five possible answers for each. A student who is completely unprepared randomly guesses the answer for each question. Let $X$ be the number of questions the student gets right.
+
+
+a. Find the probability that the student gets at least one question right.
+
+b. Find the probability that the student get all 10 questions right.
+
+c. Find the probability that the students does not get any questions right.
+
+d. Find the mean and standard deviation of the probability distribution of $X$.
+
+### Problem 6
+
+Derive the rule of total probability: If a sample space $S$ partitions into disjoint events $B_{1}, B_{2}, \ldots , B_{n}$ such that $S = B_{1} \cup B_{2} \cdots \cup B_{n}$, then for any event $A$ we have $P(A) = P(A|B_{1})P(B_{1}) + \cdots + P(A|B_{n})P(B_{n})$.
+
+### Problem 7
+
+Suppose that we toss a coin 10 times and we know that the probability of heads is 0.6. Let $X$ be the number of heads. Use the binomial implemented in R to for the following:
+
+a. Find the probability of getting exactly 2 heads out of 10 tosses.
+
+b. Find the probability of getting 2 or fewer heads out of 10 tosses.
+
+c. Find the number of heads we need to get in order to have a probability of 0.05 or less of getting that many heads out of 10 tosses.
+
+d. Simulate 10 tosses of the coin. 
+
+e. Plot the PMF and CDF for this random variable.
+
+### Problem 8
+
+Suppose that $X$ is a normal random variable with mean 10 and standard deviation 2. Use the normal distribution implemented in R to for the following:
+
+a. Find the probability that $X$ is between 8 and 12.
+
+b. Find the probability that $X$ is greater than 12.
+
+c. Find the probability that $X$ is less than 8.
+
+d. Find the 90th percentile of $X$.
+
+e. Simulate 500 draws from this distribution.
+
+f. Plot the PDF and CDF for this random variable.
 
