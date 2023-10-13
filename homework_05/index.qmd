@@ -72,9 +72,13 @@ d. Find the mean and standard deviation of the probability distribution of $X$.
 
 ### Problem 6
 
-Derive the rule of total probability: If a sample space $S$ partitions into disjoint events $B_{1}, B_{2}, \ldots , B_{n}$ such that $S = B_{1} \cup B_{2} \cdots \cup B_{n}$, then for any event $A$ we have $P(A) = P(A|B_{1})P(B_{1}) + \cdots + P(A|B_{n})P(B_{n})$.
+Suppose we have two jars. The first jar contains four cookies and four biscuits. The second jar contains two cookies and six biscuits. Further, suppose that we have a coin where the probability of tossing heads is 0.4. If we toss the coin and land heads, we randomly select a treat from jar 1, otherwise we select a treat at random from jar 2. Your friend flips the coin, picks a fruit from the corresponding jar and hands you a biscuit. What is the probability that the biscuit came from jar 1?
 
 ### Problem 7
+
+Derive the rule of total probability: If a sample space $S$ partitions into disjoint events $B_{1}, B_{2}, \ldots , B_{n}$ such that $S = B_{1} \cup B_{2} \cdots \cup B_{n}$, then for any event $A$ we have $P(A) = P(A|B_{1})P(B_{1}) + \cdots + P(A|B_{n})P(B_{n})$.
+
+### Problem 8
 
 Suppose that we toss a coin 10 times and we know that the probability of heads is 0.6. Let $X$ be the number of heads. Use the binomial implemented in R to for the following:
 
@@ -88,7 +92,7 @@ d. Simulate 10 tosses of the coin.
 
 e. Plot the PMF and CDF for this random variable.
 
-### Problem 8
+### Problem 9
 
 Suppose that $X$ is a normal random variable with mean 10 and standard deviation 2. Use the normal distribution implemented in R to for the following:
 
