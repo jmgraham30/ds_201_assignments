@@ -72,7 +72,7 @@ d. Find the mean and standard deviation of the probability distribution of $X$.
 
 ### Problem 6
 
-Suppose we have two jars. The first jar contains four cookies and four biscuits. The second jar contains two cookies and six biscuits. Further, suppose that we have a coin where the probability of tossing heads is 0.4. If we toss the coin and land heads, we randomly select a treat from jar 1, otherwise we select a treat at random from jar 2. Your friend flips the coin, picks a fruit from the corresponding jar and hands you a biscuit. What is the probability that the biscuit came from jar 1?
+Suppose we have two jars. The first jar contains four cookies and four biscuits. The second jar contains two cookies and six biscuits. Further, suppose that we have a coin where the probability of tossing heads is 0.4. If we toss the coin and land heads, we randomly select a treat from jar 1, otherwise we select a treat at random from jar 2. Your friend flips the coin, picks a treat from the corresponding jar and hands you a biscuit. What is the probability that the biscuit came from jar 1?
 
 ### Problem 7
 
