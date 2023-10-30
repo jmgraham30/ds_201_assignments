@@ -29,7 +29,7 @@ For each of parts (a) through (d), indicate whether we would generally expect th
 (c) The relationship between the predictors and response is highly non-linear.
 
 
-(d) The variance of the error terms, i.e. σ2 = Var(ε), is extremely high.
+(d) The variance of the error terms, i.e. $σ^2 = \text{Var}(\epsilon)$, is extremely high.
 
 
 ### Problem 2
