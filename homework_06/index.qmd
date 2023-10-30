@@ -22,9 +22,9 @@ Please complete your answers to each of the problems in a Quarto notebook.
 
 For each of parts (a) through (d), indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible method. Justify your answer.
 
-(a) The sample size n is extremely large, and the number of predictors p is small.
+(a) The sample size n is extremely large, and the number of predictors $p$ is small.
 
-(b) The number of predictors p is extremely large, and the number of observations n is small.
+(b) The number of predictors $p$ is extremely large, and the number of observations n is small.
 
 (c) The relationship between the predictors and response is highly non-linear.
 
@@ -34,7 +34,7 @@ For each of parts (a) through (d), indicate whether we would generally expect th
 
 ### Problem 2
 
-Explain whether each scenario is a classification or regression problem, and indicate whether we are most interested in inference or prediction. Finally, provide n and p.
+Explain whether each scenario is a classification or regression problem, and indicate whether we are most interested in inference or prediction. Finally, provide $n$ and $p$.
 
 (a) We collect a set of data on the top 500 firms in the US. For each firm we record profit, number of employees, industry and the CEO salary. We are interested in understanding which factors affect CEO salary.
 
