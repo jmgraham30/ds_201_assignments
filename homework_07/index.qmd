@@ -1,0 +1,46 @@
+---
+title: "DS 201 Homework 7"
+format: 
+  html:
+    theme: pulse 
+    toc: true 
+    self-contained: true
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(tidymodels)
+library(ggthemes)
+
+theme_set(theme_minimal(base_size = 13))
+
+tidymodels_prefer()
+
+
+```
+
+This is Homework Assignment 7 for DS 201. You can view the source code for this assignment on GitHub: [view the source code](https://github.com/jmgraham30/ds_201_assignments/blob/main/homework_07/index.qmd).
+
+For your amusement: Where do hamburgers like to dance? At a meatball!  
+
+
+## Instructions
+
+In this assignment, you will be working with the `tidymodels` package to train some basic supervised learning models[^1]. The data you will work with comes from the [TidyTuesday](https://github.com/rfordatascience/tidytuesday) data repository and has been discussed in the following blog posts by the data scientist Julia Silge:
+
+- [Predict giant pumpkin weights with workflowsets](https://juliasilge.com/blog/giant-pumpkins/)
+
+- [Modeling NCAA women's basketball tournament seeds](https://juliasilge.com/blog/ncaa-tuning/)
+
+Here is what you will need to do:
+
+1. Down load the Quarto notebook corresponding to this assignment from the course learning management system.
+
+2. Make sure that you have all the necessary R packages installed. The code chunk at the top of the notebook loads all the packages you will need for this assignment. If you get an error message when you try to run this code chunk, then you will need to install the missing packages.
+
+3. Go through the notebook and follow the provided prompts. In some cases, you will need to run a code chunk to produce output and then use the results to answer a question or respond to a prompt. In other cases, you will need to write code to produce an appropriate output.
+
+[^1]: Refer to [lesson 8](https://intro-ds.netlify.app/lesson08/) from lecture for an overview of different models and model specifications. 
+
