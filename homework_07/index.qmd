@@ -12,11 +12,7 @@ format:
 
 library(tidyverse)
 library(tidymodels)
-library(tidytext)
-library(textrecipes)
-library(themis)
-library(tidylo)
-library(ggthemes)
+library(ISLR2)
 
 theme_set(theme_minimal(base_size = 13))
 
@@ -32,17 +28,16 @@ For your amusement: Where do hamburgers like to dance? At a meatball!
 
 ## Instructions
 
-In this assignment, you will be working with the `tidymodels` package to train some basic supervised learning models[^1]. The data you will work with comes from the [TidyTuesday](https://github.com/rfordatascience/tidytuesday) data repository and has been discussed in the following blog posts by the data scientist Julia Silge:
-
-- [Modeling human/computer interactions on Star Trek with workflowsets](https://juliasilge.com/blog/star-trek/).  For this data set, we will study a classification problem to predict whether an interaction is with a human or a computer. An interesting aspect to this problem is that out predictor variable is text data.
+In this assignment, you will be working with the `tidymodels` package to train some basic supervised learning models[^1]. We will work with two data sets, one is the `Default` data set from the `ISLR2` data package and the other comes from the [TidyTuesday](https://github.com/rfordatascience/tidytuesday) data repository and has been discussed in the following blog post by the data scientist Julia Silge:
 
 - [Modeling NCAA women's basketball tournament seeds](https://juliasilge.com/blog/ncaa-tuning/). For this data set, we will study a regression problem to predict the number of wins by a team. 
 
-For one of these data sets has we will be interested in a numerical response variable and thus a regression problem, and for the other we will be interested in a categorical response variable and thus a classification problem. 
+
+For one of these data sets, we will be interested in a numerical response variable and thus a regression problem, and for the other we will be interested in a categorical response variable and thus a classification problem. 
 
 Here is what you will need to do:
 
-1. Down load the Quarto notebook corresponding to this assignment from the course learning management system.
+1. Download the Quarto notebook corresponding to this assignment from the course learning management system.
 
 2. Make sure that you have all the necessary R packages installed. The code chunk at the top of the notebook loads all the packages you will need for this assignment. If you get an error message when you try to run this code chunk, make sure that you aren't missing any packages.
 
@@ -51,91 +46,64 @@ Here is what you will need to do:
 [^1]: Refer to [lesson 8](https://intro-ds.netlify.app/lesson08/) from lecture for an overview of different models and model specifications. 
 
 
+
 ## Classification Problem for Human/Computer Interactions
 
-We start by reading in the data:
+We start by examining the data:
 
 ```{r}
-computer_raw <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-08-17/computer.csv")
-
-computer_raw$char_type <- factor(computer_raw$char_type, levels = c("Person", "Computer"))
-
-glimpse(computer_raw)
-```
-
-Examining this data set, we see that it contains a number of different variables. Our interest is to predict based on the words spoken by a character whether an interaction (predictor variable `interaction`) is with a human character or a computer (repose variable `char_type`). First note that of the interactions, 178 are with a computer and 234 are with a computer:
-
-```{r}
-computer_raw %>%
-  distinct(value_id, .keep_all = TRUE) %>%
-  count(char_type)
-```
-
-Before we proceed, we should will do some data exploration and look at which words are used by people and which are used by computers. 
-
-```{r}
-computer_counts <-
-  computer_raw %>%
-  distinct(value_id, .keep_all = TRUE) %>%
-  unnest_tokens(word, interaction) %>%
-  count(char_type, word, sort = TRUE)
-
-computer_counts %>%
-  bind_log_odds(char_type, word, n) %>%
-  filter(n > 10) %>%
-  group_by(char_type) %>%
-  slice_max(log_odds_weighted, n = 10) %>%
-  ungroup() %>%
-  ggplot(aes(log_odds_weighted,
-    fct_reorder(word, log_odds_weighted),
-    fill = char_type
-  )) +
-  geom_col(alpha = 0.8, show.legend = FALSE) +
-  facet_wrap(vars(char_type), scales = "free_y") +
-  labs(y = NULL)
+glimpse(Default)
 ```
 
 
-**Exercise 1:** Run the previous code chunk which will produce a plot. Provide an interpretation of the plot. What are some words that are used commonly by humans and not computers? What are some words that are commonly used by computers and not humans?
+**Exercise 1:** Describe what is contained in this data set. If necessary, run the command `?Default` to learn more. 
 
+With this data, our aim will be to predict which customers will default on their credit card debt.
 
+**Exercise 2:** What type of supervised learning problem is this? What is the response variable? What are the predictor variables and how many are there?
+
+Run the following code to see how many customers in the data set defaulted on their credit card debt:
+
+```{r}
+Default %>%
+  count(default)
+```
+
+**Exercise 3:** What is the baseline accuracy for this data set if we were to always predict that an individual will not default? What is the baseline accuracy for this data set if we were to always predict that an individual will default? 
+
+Before we proceed, we should will do some data exploration and look at the relationships between our predictors and the response. 
+
+**Exercise 4:** Create an appropriate plot to examine the relationship between the `balance` variable and the `default` variable. What do you notice about this relationship? Create an appropriate plot to examine the relationship between the `income` variable and the `default` variable. What do you notice about this relationship? Create an appropriate plot to examine the relationship between the `student` variable and the `default` variable. What do you notice about this relationship?
+
+Since our response is a binary categorical variable, we are interested in classification and a simple model for binary classification is [**logistic regression**](https://en.wikipedia.org/wiki/Logistic_regression).  
 
 The first step in the modeling process is to split the data into a training set and a testing set. We will use the training set to train our model and the testing set to evaluate the performance of our model. Run the following code chunk to split the data into a training set and a testing set:
 
 ```{r}
 set.seed(123)
 
-comp_split <-
-  computer_raw %>%
-  distinct(value_id, .keep_all = TRUE) %>%
-  select(char_type, interaction) %>%
-  initial_split(prop = 0.8, strata = char_type)
+default_split <-
+  initial_split(Default ,prop = 0.8, strata = default)
 
-comp_train <- training(comp_split)
-comp_test <- testing(comp_split)
+default_train <- training(default_split)
+default_test <- testing(default_split)
 ```
 
 
-The `distinct` function is to make sure that we keep only unique/distinct rows from our data. Now, we need to do some preprocessing of the data. The main goal of this is to make it so we can use text data. We will use functions from the `textrecipes` package to convert words to numerical values that can be used in a model. 
+Now, we will create a recipe to preprocess the data:
+
 
 ```{r}
-rec_all <-
-  recipe(char_type ~ interaction, data = comp_train) %>%
-  step_tokenize(interaction) %>%
-  step_tokenfilter(interaction, max_tokens = 80) %>%
-  step_tfidf(interaction)
-
-rec_all_norm <-
-  rec_all %>%
-  step_normalize(all_predictors())
-
-rec_all_smote <-
-  rec_all_norm %>%
-  step_smote(char_type)
+log_reg_rec <-
+  recipe(default ~ ., data = default_train) %>%
+  step_normalize(all_numeric()) %>%
+  step_dummy(all_nominal(), -all_outcomes())
 
 ```
 
-**Exercise 2:** Run the previous code chunk. Then, create a new code chunk and run the command `rec_all_smote %>% prep() %>% bake(comp_train)` to see what the data looks like after preprocessing. What do you notice about the data after preprocessing? 
+In the previous code chunk, the function `step_dummy` is used to convert the categorical predictor `student` to a numerical variable and the function `step_normalize` is used to normalize the numerical predictors `balance` and `income`.   
+
+**Exercise 5:** Run the previous code chunk. Then, create a new code chunk and run the command `log_reg_rec %>% prep() %>% bake(default_train)` to see what the data looks like after preprocessing. What do you notice about the data after preprocessing? 
 
 Now, we will fit a model to the training data. Since the response variable is a binary categorical variable, we will fit a logistic regression model to the training data. To do so, we need to create an appropriate model specification. 
 
@@ -147,50 +115,125 @@ log_reg_spec <-
 
 ```
 
-Now we create a workflow that will be used to fit the model. 
+Now we create a workflow that will be used to fit the model. The workflow combines our recipe and model specification.
 
 ```{r}
 log_reg_wf <-
   workflow() %>%
-  add_recipe(rec_all_smote) %>%
+  add_recipe(log_reg_rec) %>%
   add_model(log_reg_spec)
 
 
 ```
 
-**Exercise 3:** Run the previous code chunk. Then, create a new code chunk and run the command `log_reg_fit <- log_reg_wf %>% fit(comp_train)` to fit the model. 
+**Exercise 6:** Run the previous code chunk. Then, create a new code chunk and run the command `log_reg_fit <- log_reg_wf %>% fit(default_train)` to fit the model to the training data. 
 
 With a fitted model, we can now make predictions on the testing data. 
 
-**Exercise 4:** Create a new code chunk. In that chunk, copy, paste, and run the following code:
+**Exercise 7:** Create a new code chunk. In that chunk, copy, paste, and run the following code:
 
 ```
 log_reg_fit %>%
-  predict(comp_test, type="class") %>%
-  bind_cols(comp_test) %>%
-  conf_mat(truth = char_type, estimate = .pred_class)
-
+  predict(default_test, type="class") %>%
+  bind_cols(default_test) %>%
+  conf_mat(truth = default, estimate = .pred_class)
 ```
 
-What is the accuracy of the model on the testing data? 
+This code makes predictions using the test set, combines the predicted response values with the test data, and constructs a confusion matrix.  What is the accuracy of the model on the testing data? Recall that you can compute accuracy from a confusion matrix by dividing the sum of the diagonal entries by the sum of all the entries in the matrix.
 
 
-**Exercise 5:** We can also make a plot of the confusion matrix computed in the previous exercise. Create a new code chunk and run the following code:
+**Exercise 8:** We can also make a plot of the confusion matrix computed in the previous exercise. Create a new code chunk and run the following code:
 
 ```
 log_reg_fit %>%
-  predict(comp_test, type="class") %>%
-  bind_cols(comp_test) %>%
-  conf_mat(truth = char_type, estimate = .pred_class) %>%
-  autoplot()
+  predict(default_test, type="class") %>%
+  bind_cols(default_test) %>%
+  conf_mat(truth = default, estimate = .pred_class) %>%
+  autoplot() 
 ```
 
 What does this plot tell us about the performance of the model?
 
-**Exercise 6:** Do you think that this model is a good model? Why or why not?
+**Exercise 9:** How does the accuracy of the logistic regression model compare with the baseline accuracy you stated in Exercise 3? Do you think that this model is a good model? Why or why not?
+
+**Exercise 10:** Create a new model specification and workflow to fit a nearest neighbors model to the training data. To do so, you can use the function `nearest_neighbors` in place of `logistic_reg`.  Compare the performance of your nearest neighbors model to the logistic regression model. Which model performs better? Why do you think that is the case?
 
 
 ## Regression Problem for NCAA Women's Basketball Tournaments
 
+For this section, our modeling goal is to estimate the relationship of expected tournament wins by seed using a data set on NCAA women’s basketball tournaments.
+
+We start by reading in the data:
+
+```{r}
+tournament <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-10-06/tournament.csv")
+
+tournament <- tournament %>%
+  drop_na()
+```
+
+**Exercise 11:** Use the `glimpse` command to look at the columns in the data set, describe what is contained in this data set. 
+
+The response variable in this data set that we are interested in is `tourney_w` and the predictor variable we are interested in is `seed`.
+
+**Exercise 12:** What type of supervised learning problem is this? 
+
+**Exercise 13:** Plot the relationship between `tourney_w` and `seed`. What do you notice about this relationship? Is the relationship linear?
+
+As always, we will begin by splitting the data into a training set and a testing set. 
+
+```{r}
+set.seed(123)
+
+tourney_split <-
+  initial_split(tournament ,prop = 0.8, strata = seed)
+
+tourney_train <- training(tourney_split)
+
+tourney_test <- testing(tourney_split)
+
+```
+
+An interesting approach to modeling this data is to use a [**generalized additive model**](https://en.wikipedia.org/wiki/Generalized_additive_model) (GAM). A generalized additive model is a generalization of a linear model that allows for non-linear relationships between the response and the predictors. We can create a model specification for a GAM using the `gen_additive_mod` function. 
+
+```{r}
+gam_spec <- 
+  gen_additive_mod() %>%
+  set_mode("regression")
+
+```
+
+
+Now, we can fit our model to the training data:
+
+```{r}
+gam_fit <- gam_spec %>%
+  fit(tourney_w ~ s(seed, k=10),data=tourney_train)
+
+```
+
+
+**Exercise 14:** Create a new code chunk and predict the model on the test data, combine the model predictions with the test data and store the result in a variable named `tourney_preds`. What is the name of the column in `tourney_preds` that contains the model predictions?
+
+**Exercise 15:** One way to evaluate the performance of a regression model is to compute the root mean squared error (RMSE). The RMSE is defined as the square root of the mean squared error (MSE). The MSE is defined as the average of the squared differences between the observed values and the predicted values. The RMSE has the same units as the response variables and is a measure of the average error of the model. The smaller the RMSE, the better the model. To compute the RMSE for our model, create a new code chunk and run the following code:
+
+```
+tourney_preds %>% 
+  rmse(truth = tourney_w, estimate = .pred)
+```
+
+**Exercise 16:** In order to assess the predictive performance of our model, it's helpful to have a plot of the observed values versus the predicted values. Create a new code chunk and run the following code:
+
+```
+tourney_preds %>% 
+  ggplot(aes(x = tourney_w, y = .pred)) +
+  geom_point() +
+  geom_abline(color = "blue",linetype="dashed") 
+
+```
+
+**Exercise 17:** Based on the RMSE value you calculated and the previous plot, how well do you think the model is doing? What are some ways you think the model could be improved?
+
+**Exercise 18:** Instead of fitting a GAM, we could have used the much simpler linear regression. Create a new model specification and workflow to fit a linear regression model to the training data. To do so, you can replace `gen_additive_mod` with the `linear_reg` model specification function. Note that you will also have to change the model formula because the `s(seed,k=10)` part of the model specification for the GAM does not apply for linear regression.  Compare the performance of your linear regression model to the GAM. Which model performs better? Why do you think that is the case?
 
 
