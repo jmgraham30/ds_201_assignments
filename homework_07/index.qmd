@@ -47,7 +47,7 @@ Here is what you will need to do:
 
 
 
-## Classification Problem for Human/Computer Interactions
+## Classification Problem for Defaults
 
 We start by examining the data:
 
