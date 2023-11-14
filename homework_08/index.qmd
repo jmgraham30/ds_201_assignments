@@ -196,4 +196,14 @@ c. A challenge with the F-statistic is that it is difficult to interpret. A plot
 
 ### Problem 4
 
-Repeat the 
+Repeat the steps in Problem 3, but this time use the `gss` data set with the response variable `hours` and categorical predictor `partyid`. First, you'll need to remove some observations from the data set. Run the following code to do this:
+
+```{r}
+gss_for_anova <- gss %>%
+  filter(partyid %in% c("dem","ind","rep"))
+```
+
+Now use the `gss_for_anova` data set to repeat the steps in Problem 3 to see if there is a difference in the average hours worked between individuals that subscribe to different party affiliations.
+
+
+

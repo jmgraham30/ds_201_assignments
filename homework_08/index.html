@@ -3304,7 +3304,12 @@ F = \frac{\text{between-group variability}}{\text{within-group variability}}
 </section>
 <section id="problem-4" class="level3">
 <h3 class="anchored" data-anchor-id="problem-4">Problem 4</h3>
-<p>Repeat the</p>
+<p>Repeat the steps in Problem 3, but this time use the <code>gss</code> data set with the response variable <code>hours</code> and categorical predictor <code>partyid</code>. First, you’ll need to remove some observations from the data set. Run the following code to do this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>gss_for_anova <span class="ot">&lt;-</span> gss <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(partyid <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;dem&quot;</span>,<span class="st">&quot;ind&quot;</span>,<span class="st">&quot;rep&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now use the <code>gss_for_anova</code> data set to repeat the steps in Problem 3 to see if there is a difference in the average hours worked between individuals that subscribe to different party affiliations.</p>
 </section>
 </section>
 
