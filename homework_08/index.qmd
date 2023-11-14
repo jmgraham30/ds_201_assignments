@@ -18,7 +18,9 @@ theme_set(theme_minimal(base_size = 13))
 
 tidymodels_prefer()
 
+doParallel::registerDoParallel()
 
+set.seed(5924)
 ```
 
 This is Homework Assignment 8 for DS 201. You can view the source code for this assignment on GitHub: [view the source code](https://github.com/jmgraham30/ds_201_assignments/blob/main/homework_08/index.qmd).
@@ -69,6 +71,129 @@ The data set contains 500 observations and 11 variables. The variables are as fo
 
 ### Problem 1
 
-In [lesson 9](https://intro-ds.netlify.app/lesson09/) we used bootstrap resampling to estimate the sampling distribution for a single proportion and a single mean. In thsi problem, we will use bootstrap resampling to estimate the sampling distribution for the difference in means between two groups.
+In [lesson 9](https://intro-ds.netlify.app/lesson09/) we used bootstrap resampling to estimate the sampling distribution for a single proportion and a single mean. In this problem, we will use bootstrap resampling to estimate the sampling distribution for the difference in means between two groups. Here is the question we are interested in answering:
+
+> Does the average number of hours worked differ between individuals with a college degree and individuals without a college degree?
+
+a. For the variables `hours` and `college` state whether it is numerical or categorical. Further, if the variable is categorical, state whether it is binary or not.  
+
+b. Create a grouped box plot of `hours` by `college` using the `gss` data set. That is, use `college` as the $x$ variable and `hours` as the $y$ variable. What do you observe?  
+
+c. Run the following code and explain what it does and what the output tells us:
+
+```{r}
+#| eval: false
+gss %>%
+  group_by(college) %>%
+  summarize(mean_hours = mean(hours, na.rm = TRUE),
+            sd_hours = sd(hours, na.rm = TRUE),
+            n = n())
+```
+
+d. To address our question of interest, we use the test statistic $\text{mean hours with degree} - \text{mean hours without degree}$. We can compute the observed test statistic using functions from the `infer` package as follows:
+
+```{r}
+#| eval: false
+d_hat <- gss %>%
+  specify(hours ~ college) %>%
+  calculate(stat = "diff in means", order = c("no degree", "degree"))
+  
+d_hat
+```
+
+Explain what the code above does and what the output tells us.
+
+e. The variable `d_hat` contains the point estimate for our test statistic. Now we will obtain a confidence interval using bootstrap resampling. Run the following code and explain what it does and what the output tells us:
+
+```{r}
+#| eval: false
+boot_dist <- gss %>%
+   specify(hours ~ college) %>%
+   generate(reps = 1000, type = "bootstrap") %>%
+   calculate(stat = "diff in means", order = c("no degree", "degree"))
+   
+(percentile_ci <- get_ci(boot_dist))
+```
+
+f. Interpret the confidence interval obtained in part (e). A plot may be helpful here. Run the following code to obtain a plot: 
+
+```{r}
+#| eval: false
+visualize(boot_dist) +
+  shade_confidence_interval(endpoints = percentile_ci)
+```
+
+g. Based on the confidence interval obtained in part (e), do you think there is likely to be any real difference in the mean hours worked between someone with a degree and someone without a degree? Explain your reasoning.
+
+h. We can use the base R function `t.test` to obtain a 95% confidence interval through classical formulas instead of bootstrapping. Run the following code and compare the results with those you obtained through bootstrapping:
+
+```{r}
+#| eval: false
+t.test(hours ~ college, data = gss)$conf.int
+```
 
 
+### Problem 2
+
+Repeat all the steps in Problem 1, but this time use the variable `sex` instead of `college`. That is, use `hours` as the $y$ variable and `sex` as the $x$ variable.
+
+
+### Problem 3
+
+In Problems 1 and 2, we looked for a difference in means between two groups. That is, we examined a situation where we had a single numerical response variable and a single binary categorical predictor variable. In this problem, we will look for a difference in means between two or more groups. That is, we will have a numerical response and a categorical predictor that could have more than two levels.  Such problems are often referred to as *analysis of variance* (ANOVA) problems.
+
+For this problem, we will consider the `chickwts' data set which is the result of an experiment to determine the effect of diet on the growth of chicks. The data set contains 71 observations and 2 variables. Here is what the data looks like:
+
+```{r}
+#| echo: false
+
+glimpse(chickwts)
+
+```
+
+Our question is:
+
+> Does the average weight of chicks differ between the different diets?
+
+
+To address this, we will use functions from the `infer` package similar to what is done in the article [Tidy ANOVA (Analysis of Variance) with infer](https://infer.netlify.app/articles/anova) article from the `infer` package documentation.
+
+a. Create a grouped box plot of `weight` by `feed` using the `chickwts` data set. That is, use `feed` as the $x$ variable and `weight` as the $y$ variable. What do you observe?
+
+b. It is useful to have a test statistic that is a single numerical value that assesses whether the mean of a quantitative variable within several pre-defined groups differ from each other. The most common statistic for this purpose if call the [*F-statistic*](https://en.wikipedia.org/wiki/F-test). The F-statistic is basically defined as:
+
+$$
+F = \frac{\text{between-group variability}}{\text{within-group variability}}
+$$
+We can use functions from the `infer` package to compute the observed F-statistic for our data. The larger the F-statistic, the more likely it is that our data provides evidence that there is a difference in the means of at least two of the groups. 
+
+a. Run the following code and explain what it does and what the output tells us:
+
+```{r}
+#| eval: false
+observed_f_statistic <- chickwts %>%
+  specify(weight ~ feed) %>%
+  calculate(stat = "F")
+
+observed_f_statistic
+
+```
+
+b. Now we can use bootstrap resampling to obtain a confidence interval for the F-statistic. Run the following code and explain what it does and what the output tells us:
+
+```{r}
+#| eval: false
+boot_dist <- chickwts %>%
+   specify(weight ~ feed) %>%
+   generate(reps = 1000, type = "bootstrap") %>%
+   calculate(stat = "F")
+   
+(percentile_ci <- get_ci(boot_dist))
+```
+
+
+c. A challenge with the F-statistic is that it is difficult to interpret. A plot can be helpful though. Create a new code chunk and use the `visualize` function similar to part (f) in Problem 1 to create a plot of the bootstrap distribution of the F-statistic. Then use the `shade_confidence_interval` function to shade the confidence interval obtained in part (b). Interpret the plot. 
+
+### Problem 4
+
+Repeat the 
