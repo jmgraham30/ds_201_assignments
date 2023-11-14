@@ -1,0 +1,74 @@
+---
+title: "DS 201 Homework 8"
+format: 
+  html:
+    theme: pulse 
+    toc: true 
+    self-contained: true
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(tidymodels)
+library(ISLR2)
+
+theme_set(theme_minimal(base_size = 13))
+
+tidymodels_prefer()
+
+
+```
+
+This is Homework Assignment 8 for DS 201. You can view the source code for this assignment on GitHub: [view the source code](https://github.com/jmgraham30/ds_201_assignments/blob/main/homework_08/index.qmd).
+
+For your amusement: Why did the robot win the dance contest? Because it was a dancing machine.  
+
+
+## Instructions
+
+Please complete and turn in this assignment as a Quarto notebook. 
+
+This assignment focuses on statistical inference as covered in [lesson 9](https://intro-ds.netlify.app/lesson09/). Useful references for this assignment include:
+
+1. The [Full Infer Pipeline Example](https://infer.netlify.app/articles/observed_stat_examples) article from the `infer` package documentation. 
+
+2. The [Tidy ANOVA (Analysis of Variance) with infer](https://infer.netlify.app/articles/anova) article from the `infer` package documentation.
+
+
+In much of this assignment, we will work with the `gss` data set from the `infer` package. The description for this data set is as follows:
+
+> The General Social Survey is a high-quality survey which gathers data on American society and opinions, conducted since 1972. This data set is a sample of 500 entries from the GSS, spanning years 1973-2018, including demographic markers and some economic variables. Note that this data is included for demonstration only, and should not be assumed to provide accurate estimates relating to the GSS. However, due to the high quality of the GSS, the unweighted data will approximate the weighted data in some analyses.
+
+The data set contains 500 observations and 11 variables. The variables are as follows:
+
+- `year`: year the survey was conducted
+
+- `age`: age of the respondent
+
+- `sex`: respondent's sex (self-identified)
+
+- `college`: whether on not respondent has a college degree, including junior/community college
+
+- `partyid`: political party affiliation
+
+- `hompop`: number of persons in household
+
+- `hours`: number of hours worked in week before survey, truncated at 89
+
+- `income`:  total family income
+
+- `class`: subjective socioeconomic class identification
+
+- `finrela`: opinion of family income
+
+- `weight`: survey weight
+
+## Problems
+
+### Problem 1
+
+In [lesson 9](https://intro-ds.netlify.app/lesson09/) we used bootstrap resampling to estimate the sampling distribution for a single proportion and a single mean. In thsi problem, we will use bootstrap resampling to estimate the sampling distribution for the difference in means between two groups.
+
+
