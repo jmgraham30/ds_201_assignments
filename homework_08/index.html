@@ -3140,6 +3140,7 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
   <li><a href="#problem-2" id="toc-problem-2" class="nav-link" data-scroll-target="#problem-2">Problem 2</a></li>
   <li><a href="#problem-3" id="toc-problem-3" class="nav-link" data-scroll-target="#problem-3">Problem 3</a></li>
   <li><a href="#problem-4" id="toc-problem-4" class="nav-link" data-scroll-target="#problem-4">Problem 4</a></li>
+  <li><a href="#problem-5" id="toc-problem-5" class="nav-link" data-scroll-target="#problem-5">Problem 5</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -3310,6 +3311,10 @@ F = \frac{\text{between-group variability}}{\text{within-group variability}}
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(partyid <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;dem&quot;</span>,<span class="st">&quot;ind&quot;</span>,<span class="st">&quot;rep&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now use the <code>gss_for_anova</code> data set to repeat the steps in Problem 3 to see if there is a difference in the average hours worked between individuals that subscribe to different party affiliations.</p>
+</section>
+<section id="problem-5" class="level3">
+<h3 class="anchored" data-anchor-id="problem-5">Problem 5</h3>
+<p>In class, we went over the blog post <a href="https://juliasilge.com/blog/college-sports/">Handling model coefficients for collegiate sports</a> and from it learned about bootstrapping coefficient estimates in a linear model. Apply what you learned from this blog post to the <code>gss</code> data set. In particular, use the <code>gss</code> data set to fit a linear model with formula <code>hours ~ age + sex + college + year</code>. Then use bootstrap resampling with the function <code>reg_intervals</code> from the <code>rsample</code> package to obtain a confidence interval for the coefficient estimates for all the predictors. Interpret the confidence intervals for the coefficients.</p>
 </section>
 </section>
 

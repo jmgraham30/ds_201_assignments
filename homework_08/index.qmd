@@ -205,5 +205,10 @@ gss_for_anova <- gss %>%
 
 Now use the `gss_for_anova` data set to repeat the steps in Problem 3 to see if there is a difference in the average hours worked between individuals that subscribe to different party affiliations.
 
+### Problem 5
+
+In class, we went over the blog post [Handling model coefficients for collegiate sports](https://juliasilge.com/blog/college-sports/) and from it learned about bootstrapping coefficient estimates in a linear model. Apply what you learned from this blog post to the `gss` data set. In particular, use the `gss` data set to fit a linear model with formula `hours ~ age + sex + college + year`. Then use bootstrap resampling with the function `reg_intervals` from the `rsample` package to obtain a confidence interval for the coefficient estimates for all the predictors. Interpret the confidence intervals for the coefficients.
+
+
 
 
